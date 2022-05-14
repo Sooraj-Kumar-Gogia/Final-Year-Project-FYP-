@@ -1,0 +1,36 @@
+
+      TextBox: {
+        borderColor: 'lightgrey',
+        borderWidth: 1,
+        padding: 10,
+        marginHorizontal: 20,
+        marginVertical: 15,
+        textAlignVertical: 'center',
+        backgroundColor: '#DEDEDE',
+        borderRadius: 5,
+      },
+  
+  
+      Heading: {
+        fontSize: 30,
+        color: 'darkblue',
+        fontFamily: 'Poppins',
+        alignSelf: 'center',
+      },
+  
+      button: {
+        width: "90%",
+        marginHorizontal: 20,
+        borderRadius: 10,
+        height: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 40,
+        backgroundColor: "orange",
+  
+  
+      }
+      
+  
+  
+  
