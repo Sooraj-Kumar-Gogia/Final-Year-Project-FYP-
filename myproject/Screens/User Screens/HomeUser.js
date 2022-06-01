@@ -1,6 +1,6 @@
 // import react from "react";
 import * as React from 'react';
-import { View, Text, ScrollView, Image, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, Image } from 'react-native';
 import { Button, Card } from "react-native-paper";
 import styles from "../../style/ExternalStyle";
 

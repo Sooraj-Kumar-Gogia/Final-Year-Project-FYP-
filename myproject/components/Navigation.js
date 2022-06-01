@@ -49,7 +49,6 @@ export default function Navigation() {
         <Tab.Screen name='Profile' component={Profile} />
         <Tab.Screen name='Profile' component={Notification} />
         <Tab.Screen name='Profile' component={CartScreen} />
-        <Tab.Screen name='Login' component={Login} />
         
         
       </Tab.Navigator>
