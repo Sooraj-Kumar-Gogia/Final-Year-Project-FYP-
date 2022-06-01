@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker';
 import { Button } from "react-native-paper";
 // import { Item } from 'react-native-paper/lib/typescript/components/List/List';
 import { useState } from 'react/cjs/react.production.min';
-import styles from '../style/ExternalStyle';
+import styles from '../../style/ExternalStyle';
 
 const Signup2 = () => {
   // const [pickerValue, setPickerValue] = useState("Select City")

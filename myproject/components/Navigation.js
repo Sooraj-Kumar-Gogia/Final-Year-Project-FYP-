@@ -2,12 +2,13 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Signup from '../Screens/Signup';
-import HomeUser from '../Screens/HomeUser';
-import OrdersUser from '../Screens/OrdersUser';
-import Profile from '../Screens/PersonalProfileUser';
-import Notification from '../Screens/Notifications';
-import CartScreen from '../Screens/Cart';
+import Signup from '.../Screens/Signup';
+import HomeUser from '.../Screens/HomeUser';
+import OrdersUser from '.../Screens/OrdersUser';
+import Profile from '.../Screens/PersonalProfileUser';
+import Notification from '.../Screens/Notifications';
+import CartScreen from '.../Screens/Cart';
+import Login from '../Screens/User Screens/Login';
 
 function HomeScreen() 
 {
@@ -48,6 +49,7 @@ export default function Navigation() {
         <Tab.Screen name='Profile' component={Profile} />
         <Tab.Screen name='Profile' component={Notification} />
         <Tab.Screen name='Profile' component={CartScreen} />
+        <Tab.Screen name='Login' component={Login} />
         
         
       </Tab.Navigator>

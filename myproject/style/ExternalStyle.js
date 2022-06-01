@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { white } from 'react-native-paper/lib/typescript/styles/colors';
 
 const styles = StyleSheet.create(
   {
@@ -111,7 +112,7 @@ const styles = StyleSheet.create(
       padding: 10,
     },
 
-    Price:{
+    Price: {
       fontSize: 25,
       color: 'orange',
       fontFamily: 'Poppins',
@@ -119,7 +120,7 @@ const styles = StyleSheet.create(
       paddingLeft: 10,
     },
 
-    Description:{
+    Description: {
       fontSize: 16,
       fontFamily: 'Poppins',
       padding: 10,
@@ -129,24 +130,24 @@ const styles = StyleSheet.create(
 
     },
 
-    circle: 
+    circle:
     {
-        // borderRadius: 100,
-        // color: 'white',
-        // backgroundColor: 'orange',
-        // width: 10,
-        // height: 30,
-        // fontSize: 20,
-        // alignContent: 'center',
-        // justifyContent: 'center',
-        
-          width: 25,
-          height: 25,
-          borderRadius: 56/2,
-          backgroundColor: 'orange',
-          padding: 20,
-          paddingLeft: 20,
-       
+      // borderRadius: 100,
+      // color: 'white',
+      // backgroundColor: 'orange',
+      // width: 10,
+      // height: 30,
+      // fontSize: 20,
+      // alignContent: 'center',
+      // justifyContent: 'center',
+
+      width: 25,
+      height: 25,
+      borderRadius: 56 / 2,
+      backgroundColor: 'orange',
+      padding: 20,
+      paddingLeft: 20,
+
     },
     CartItemImage: {
       borderRadius: 10,
@@ -159,8 +160,52 @@ const styles = StyleSheet.create(
       color: 'black',
       fontFamily: 'Poppins',
       padding: 10,
-    }
+    },
 
+    SellerDashboardCards:
+    {
+      borderRadius: 30,
+      width: '80%',
+      height: 100,
+      alignSelf: 'center',
+      backgroundColor: 'orange',
+      color: 'white',
+      alignContent: 'center',
+    },
+
+    RightSideCard: {
+      borderRadius: 30,
+      width: '50%',
+      height: 100,
+      alignSelf: 'flex-start',
+      backgroundColor: 'orange',
+      color: 'white',
+      alignContent: 'center',
+      paddingTop: 20,
+    },
+    LeftSideCard: {
+      borderRadius: 30,
+      width: '40%',
+      height: 100,
+      alignSelf: 'flex-end',
+      backgroundColor: 'orange',
+      color: 'white',
+      alignContent: 'center',
+      paddingTop: 20,
+    },
+
+    ProductDescription: {
+      borderColor: 'lightgrey',
+      borderWidth: 1,
+      padding: 10,
+      marginHorizontal: 20,
+      marginVertical: 15,
+      textAlignVertical: 'center',
+      backgroundColor: '#DEDEDE',
+      borderRadius: 5,
+      height: 200,
+      alignContent: 'flex-start',
+    },
 
 
   }

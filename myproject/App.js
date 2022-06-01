@@ -1,21 +1,24 @@
 import * as React from 'react';
-import { View, Text } from 'react-native'; //, Image
-import { Button } from 'react-native-paper';
-import Navigation from "./components/Navigation"
-import HomeUser from './Screens/HomeUser';
-import OrdersUser from './Screens/OrdersUser';
-import ProductDisplay from './Screens/ProductDisplay';
-import CartScreen from './Screens/Cart';
-import Notification from './Screens/Notifications';
+import Login from './Screens/User Screens/Login';
+import HomeUser from './Screens/User Screens/HomeUser';
+import { NavigationContainer } from '@react-navigation/native';
+
+
+function Stack(){
+  return (
+    <Stack.Navigator initialRouteName="Login">
+      <Stack.Screen name="Home" component={HomeUser} />
+    </Stack.Navigator>
+  )
+}
 
 
 const App = () => {
   return (
-   <CartScreen></CartScreen>
+    <NavigationContainer>
+      <Stack />
+    </NavigationContainer>
   )
 
 }
-
-
 export default App;
-
