@@ -1,23 +1,25 @@
-// import react from "react";
 import * as React from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView, Image } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import { View, Text, TextInput, ScrollView, Image } from 'react-native';
 import { Button } from "react-native-paper";
-// import { Item } from 'react-native-paper/lib/typescript/components/List/List';
-import { useState } from 'react/cjs/react.production.min';
 import styles from '../../style/ExternalStyle';
+import { useNavigation } from '@react-navigation/native';
+import { Picker } from '@react-native-picker/picker';
+import { Item } from 'react-native-paper/lib/typescript/components/List/List';
+import { useState } from 'react/cjs/react.production.min';
+
+const CallHomeScreen = () => {
+  navigation.navigate('Home')
+}
 
 const Signup2 = () => {
-  // const [pickerValue, setPickerValue] = useState("Select City")
+  navigation = useNavigation();
   return (
 
     <View style={styles.Container}>
+      {/* const [pickerValue, setPickerValue] = useState("Select City") */}
       <ScrollView>
-        <Image source={require('./src/assets/icon.jpg')} style={{ width: 100, height: 100, alignSelf: 'center', paddingTop: 70 }} />
-        <Text style={styles.Heading}>Almost there...</Text>
-
-        <TextInput placeholder="Phone" style={styles.TextBox}></TextInput>
-        {/* <Picker selectedValue={''} style={style.TextBox} selectedValue={pickerValue} onValueChange = {(ItemValue) => setPickerValue(ItemValue)}>  */}
+        <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/assets/icon.jpg')} style={{ width: 100, height: 100, alignSelf: 'center', paddingTop: 70, }} />
+        {/* <Picker selectedValue={''} style={style.TextBox} selectedValue={pickerValue} onValueChange = {(ItemValue) => setPickerValue(ItemValue)}>
         <Picker style={styles.TextBox}>
           <Picker.Item label='Karachi' value={'Karachi'} />
           <Picker.Item label='Islamabad' value={'Islamabad'} />
@@ -30,20 +32,21 @@ const Signup2 = () => {
           <Picker.Item label='Ghotiki' value={'Ghotiki'} />
           <Picker.Item label='Hunza' value={'Hunza'} />
           <Picker.Item label='Hyderabad' value={'Hyderabad'} />
-        </Picker>
-        <TextInput placeholder="Address" style={styles.TextBox}></TextInput> {/*Use google Map to compare locatoin dynamically to select the exact location*/ }
-        <TextInput placeholder="Postal Code" style={styles.TextBox}></TextInput>
+        </Picker>  */}
 
+        <Text style={styles.Heading}>Almost there...</Text>
+        <TextInput placeholder="Phone" style={styles.TextBox}></TextInput>
+        <TextInput placeholder="Address" style={styles.TextBox}></TextInput>
+        {/*Use google Map to compare locatoin dynamically to select the exact location*/}
+        <TextInput placeholder="Postal Code" style={styles.TextBox}></TextInput>
       </ScrollView>
 
+
       <View style={{ backgroundColor: 'white' }}>
-        <Button style={styles.button} mode="contained" onPress={() => console.log('Pressed')}>Create Account</Button>
+        <Button style={styles.button} mode="contained" onPress={CallHomeScreen}>Create Account</Button>
       </View>
     </View>
   )
-
 }
 
-
 export default Signup2;
-

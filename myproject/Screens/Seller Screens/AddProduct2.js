@@ -8,7 +8,7 @@ const AddProduct = () => {
         <View>
             <Text style={styles.NameHeading}>Product Info</Text>
             <Button>Select Image</Button>
-            <TextInput placeholder='Description' style = {styles.ProductDescription}></TextInput>
+            <TextInput placeholder='Description' multiline style = {styles.ProductDescription}></TextInput>
             <Text style = {{padding: 20}}>Make sure your image is of 200 x 200 px</Text>
             <Button style= {styles.button}>Finish</Button>
 

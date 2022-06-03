@@ -2,10 +2,16 @@
 import * as React from 'react';
 import { View, Text, ScrollView, Image } from 'react-native';
 import { Button, Card } from "react-native-paper";
-import styles from "../../style/ExternalStyle";
+import {NavigationContainer, useNavigation } from '@react-navigation/native';
+import ProductDisplay from './ProductDisplay';
+import styles from '../../style/ExternalStyle';
+
+const CallProductScreen =()=>{
+navigation.navigate('ProductDisplay')
+}
 
 const HomeUser = () => {
-
+navigation = useNavigation()
   return (
     <View>
       <ScrollView>
@@ -14,7 +20,7 @@ const HomeUser = () => {
         </Card>
 
         <Text style={styles.Heading}>Popular Dishes</Text>
-        <Card style={styles.productcatalog}>
+        <Card style={styles.productcatalog} onPress={CallProductScreen}>
           <View>
             <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
             <Card.Title title="Product Name here" subtitle="Card Subtitle like Category" />
@@ -24,7 +30,7 @@ const HomeUser = () => {
           </View>
         </Card>
 
-        <Card style={styles.productcatalog}>
+        <Card style={styles.productcatalog} onPress={CallProductScreen}>
           <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
           <Card.Title title="Product Name here" subtitle="Card Subtitle like Category" />
           <Card.Content>
@@ -32,7 +38,7 @@ const HomeUser = () => {
           </Card.Content>
         </Card>
 
-        <Card style={styles.productcatalog}>
+        <Card style={styles.productcatalog} onPress={CallProductScreen}>
           <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
           <Card.Title title="Product Name here" subtitle="Card Subtitle like Category" />
           <Card.Content>
@@ -40,7 +46,7 @@ const HomeUser = () => {
           </Card.Content>
         </Card>
 
-        <Card style={styles.productcatalog}>
+        <Card style={styles.productcatalog} onPress={CallProductScreen}>
           <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
           <Card.Title title="Product Name here" subtitle="Card Subtitle like Category" />
           <Card.Content>
