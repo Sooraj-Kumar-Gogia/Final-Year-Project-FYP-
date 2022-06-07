@@ -6,8 +6,7 @@ import styles from '../../style/ExternalStyle';
 import CartScreen from './Cart';
 
 
-const CallCartScreen =()=>
-{navigation.navigate('Cart')}
+const CallCartScreen = () => { navigation.navigate('Cart') }
 
 const ProductDisplay = () => {
     navigation = useNavigation();
@@ -20,7 +19,7 @@ const ProductDisplay = () => {
             {/* <View style = {styles.circle}></View> */}
             <Text style={styles.Description}>This is laziz zaikedar Chicken Biryani made with pure ingredients of home. It is delivered with Raita and Salad. So, what are you waiting for? Order it now and Enjoy!</Text>
             <Button style={styles.button} onPress={CallCartScreen}>Add to HotPot</Button>
-            
+
         </View>
 
 

@@ -1,10 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
 import { Button } from 'react-native-paper';
-// import { exp } from 'react-native/Libraries/Animated/Easing';
 import styles from '../../style/ExternalStyle';
+import Bill from './Bill';
+
+const CallBillScreen = () => { navigation.navigate('Bill') }
 
 const CartScreen = () => {
+    navigation = useNavigation();
     return (
         <View>
             <View style={{ flexDirection: 'row', }}>
@@ -59,7 +63,7 @@ const CartScreen = () => {
 
 
 
-            <Button style={styles.button}>Order Now</Button>
+            <Button style={styles.button} onPress={CallBillScreen}>Order Now</Button>
         </View >
 
 

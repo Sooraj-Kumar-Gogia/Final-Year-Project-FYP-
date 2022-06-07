@@ -3,7 +3,7 @@ import { View, Text, TextInput, Image } from 'react-native';
 import { Button } from 'react-native-paper';
 import styles from '../../style/ExternalStyle';
 
-const AddProduct = () => {
+const AddProduct2 = () => {
     return (
         <View>
             <Text style={styles.NameHeading}>Product Info</Text>
@@ -20,4 +20,4 @@ const AddProduct = () => {
     )
 }
 
-export default AddProduct;
+export default AddProduct2;

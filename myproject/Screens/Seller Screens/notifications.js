@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
 import styles from '../../style/ExternalStyle';
 
-const Notification = () => {
+const SellerNotification = () => {
     return (
 
         <ScrollView>
@@ -43,4 +43,4 @@ const Notification = () => {
 
 }
 
-export default Notification;
+export default SellerNotification;

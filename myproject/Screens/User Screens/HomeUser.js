@@ -5,6 +5,7 @@ import { Button, Card } from "react-native-paper";
 import {NavigationContainer, useNavigation } from '@react-navigation/native';
 import ProductDisplay from './ProductDisplay';
 import styles from '../../style/ExternalStyle';
+import Navigation from '../../components/Navigation';
 
 const CallProductScreen =()=>{
 navigation.navigate('ProductDisplay')
