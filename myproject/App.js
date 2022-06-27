@@ -43,7 +43,6 @@ function SellerStack() {
       <Stack.Screen name="Dashboard" component={SellerTab} />
       <Stack.Screen name="Add Product" component={AddProduct} />
       <Stack.Screen name="Add Product2" component={AddProduct2} />
-
     </Stack.Navigator>
 
   );
