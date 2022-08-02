@@ -14,6 +14,7 @@ import { UserTab } from './components/Navigation';
 import { SellerTab } from './components/Navigation';
 import AddProduct from './Screens/Seller Screens/AddProduct';
 import AddProduct2 from './Screens/Seller Screens/AddProduct2';
+import Try from './Try';
 
 
 const Stack = createStackNavigator();
@@ -53,9 +54,10 @@ function SellerStack() {
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <SellerStack/>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <SellerStack/>
+    <Try/>
+    // </NavigationContainer>
 
   )
 }
