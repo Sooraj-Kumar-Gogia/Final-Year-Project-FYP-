@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 require('./Auth-Server/models/Users')
 const authoRoutes = require('./routes/authRoutes')
+const requireToken = require("./middleware/requireToken")
 
 const app = express()
 PORT = 3000
@@ -22,11 +23,10 @@ mongoose.connection.on('eror' , (err)=>{
 })
  
 
-// // Trying to send the req and get res 
-// app.post('/', (req, res)=>{
-//     console.log(req.body) 
-//     res.send("Hello Dude")    
-// }) 
+// Trying to send the req and get res 
+app.get('/', requireToken, (req, res)=>{
+   res.send("Your Email is: " + req.user.email)
+}) 
 
 
 // Assigning port to run
