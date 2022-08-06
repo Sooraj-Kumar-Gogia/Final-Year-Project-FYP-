@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
-const { hash } = require('bcrypt')
+// const { hash } = require('bcrypt')
 
 
 const UserSchema = new mongoose.Schema({
@@ -21,34 +21,36 @@ const UserSchema = new mongoose.Schema({
 
 
 
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', function (next) {
     const user = this;
 
-// only hash the password if it has been modified (or is new)
-if (!user.isModified('password')) {return next();}
+    // only hash the password if it has been modified (or is new)
+    if (!user.isModified('password')) { return next(); }
 
-// generate a salt
-bcrypt.genSalt(10, function(err, salt) {
-    if (err){return next(err);}
+    // generate a salt
+    bcrypt.genSalt(10, function (err, salt) {
+        if (err) { return next(err); }
 
-    // hash the password using our new salt
-    bcrypt.hash(user.password, salt, function(err, hash) {
-        if (err) {return next(err);}
+        // hash the password using our new salt
+        bcrypt.hash(user.password, salt, function (err, hash) {
+            if (err) { return next(err); }
 
-        // override the cleartext password with the hashed one
-        user.password = hash;
-        next();
+            // override the cleartext password with the hashed one
+            user.password = hash;
+            next();
+        });
     });
+
+
+
 });
 
 
-});
 
-
-
+   
 UserSchema.methods.comparePassword = function (candidatePassword) {
     const user = this;
-    return new Promise((resolve, reject)=> {
+    return new Promise((resolve, reject) => {
         bcrypt.compare(this.comparePassword, user.password, (err, isMatch) => {
             if (err) {
                 res.send("first if te ahyan")
@@ -62,8 +64,6 @@ UserSchema.methods.comparePassword = function (candidatePassword) {
         })
     })
 }
-
-
 
 
 

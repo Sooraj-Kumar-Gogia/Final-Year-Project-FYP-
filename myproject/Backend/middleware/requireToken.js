@@ -8,8 +8,6 @@ const {jwtkey} = require('../keys')
 module.exports = (req, res, next)=>{
     const { authorization } = req.headers;
 
-    //checking if user is authorized
-    //and authorizatoin = "Bearer asdfasldkjroifdj"
     if(!authorization){
         return res.status(401).send("Error: You must be Logged in")
     }
