@@ -13,7 +13,7 @@ const ProductDisplay = () => {
     return (
 
         <View>
-            <Image source={require("C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg")} style={styles.ProductDisplayImage} />
+            <Image source={require("C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg")} style={styles.ProductDisplayImage} />
             <Text style={styles.NameHeading}>Chicken Biryani</Text>
             <Text style={styles.Price}>PKR 200</Text>
             {/* <View style = {styles.circle}></View> */}

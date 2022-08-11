@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { View, Text, ScrollView, Image} from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Image} from 'react-native';
 import { Button, Card } from "react-native-paper";
 import { ApprovalTag, NotApprovedTag } from '../../components/StatusTag';
 import styles from '../../style/ExternalStyle';
-
 
 
 
@@ -24,7 +23,7 @@ const OrdersUser = () => {
               
             </View>
             <View style={{ width: 100, height: 150, flex: 1, }}>
-              <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPageOrderPage} />
+              <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPageOrderPage} />
             </View>
           </Card.Content>
         </Card>
@@ -37,7 +36,7 @@ const OrdersUser = () => {
               <View><ApprovalTag/></View>
             </View>
             <View style={{ width: 100, height: 150, flex: 1, }}>
-              <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
+              <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
             </View>
           </Card.Content>
         </Card>
@@ -51,7 +50,7 @@ const OrdersUser = () => {
               <View><NotApprovedTag/></View>
             </View>
             <View style={{ width: 100, height: 150, flex: 1, }}>
-              <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
+              <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
             </View>
           </Card.Content>
         </Card>
@@ -64,7 +63,7 @@ const OrdersUser = () => {
               <NotApprovedTag/>
             </View>
             <View style={{ width: 100, height: 150, flex: 1, }}>
-              <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
+              <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
             </View>
           </Card.Content>
         </Card>

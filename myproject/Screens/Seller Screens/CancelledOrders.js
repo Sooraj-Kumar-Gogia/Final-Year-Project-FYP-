@@ -23,38 +23,38 @@ const CancelledOrders = () => {
             <ScrollView>
 
                 <View style={{ flex: 1, flexDirection: 'row', backgroundColor: '#DEDEDE', borderBottomWidth: 0.2, }}>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
                     <Text style={styles.Description}>Order Cancelled</Text>
                     <Text style = {styles.Description}>PKR 500</Text>
                 </View>
 
                 <View style={{ flex: 1, flexDirection: 'row', backgroundColor: '#DEDEDE', borderBottomWidth: 0.2, }}>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
                     <Text style={styles.Description}>Order Cancelled</Text>
                     <Text style = {styles.Description}>PKR 500</Text>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', backgroundColor: '#DEDEDE', borderBottomWidth: 0.2, }}>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
                     <Text style={styles.Description}>Order Cancelled</Text>
                     <Text style = {styles.Description}>PKR 500</Text>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', backgroundColor: '#DEDEDE', borderBottomWidth: 0.2, }}>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
                     <Text style={styles.Description}>Order Cancelled</Text>
                     <Text style = {styles.Description}>PKR 500</Text>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', backgroundColor: '#DEDEDE', borderBottomWidth: 0.2, }}>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
                     <Text style={styles.Description}>Order Cancelled</Text>
                     <Text style = {styles.Description}>PKR 500</Text>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', backgroundColor: '#DEDEDE', borderBottomWidth: 0.2, }}>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
                     <Text style={styles.Description}>Order Cancelled</Text>
                     <Text style = {styles.Description}>PKR 500</Text>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', backgroundColor: '#DEDEDE', borderBottomWidth: 0.2, }}>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/cancel.png')} style={styles.CartItemImage} />
                     <Text style={styles.Description}>Order Cancelled</Text>
                     <Text style = {styles.Description}>PKR 500</Text>
                 </View>

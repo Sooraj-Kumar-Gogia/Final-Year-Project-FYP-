@@ -13,7 +13,7 @@ const CartScreen = () => {
         <View>
             <View style={{ flexDirection: 'row', }}>
                 <View>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.CartItemImage} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.CartItemImage} />
                 </View>
                 <View>
                     <View style={{ flexDirection: 'row' }}>
@@ -31,7 +31,7 @@ const CartScreen = () => {
 
             <View style={{ flexDirection: 'row', }}>
                 <View>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.CartItemImage} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.CartItemImage} />
                 </View>
                 <View>
                     <View style={{ flexDirection: 'row' }}>
@@ -47,7 +47,7 @@ const CartScreen = () => {
 
             <View style={{ flexDirection: 'row', }}>
                 <View>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.CartItemImage} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.CartItemImage} />
                 </View>
                 <View>
                     <View style={{ flexDirection: 'row' }}>

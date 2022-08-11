@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, ScrollView, Text, TextInput, Image } from 'react-native';
+import { View, ScrollView, Text, StyleSheet, TextInput, Image } from 'react-native';
 import { Button } from 'react-native-paper';
 import styles from '../../style/ExternalStyle';
 import { useNavigation } from '@react-navigation/native';
@@ -19,7 +19,7 @@ const Login = () => {
   return (
     <View>
       <ScrollView>
-        <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/illustrations/HI.png')} style={{ width: 150, height: 200, alignSelf: 'center', paddingTop: 70 }} />
+        <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/HI.png')} style={{ width: 150, height: 200, alignSelf: 'center', paddingTop: 70 }} />
         <Text style={styles.Heading}>Welcome Back</Text>
 
         <TextInput placeholder='Enter your Email' style={styles.TextBox}></TextInput>

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
-// const { hash } = require('bcrypt')
 
 
 const UserSchema = new mongoose.Schema({
@@ -65,13 +64,5 @@ UserSchema.methods.comparePassword = function (candidatePassword) {
     })
 }
 
-
-
-// UserSchema.methods.comparePassword = function(candidatePassword) {
-//     bcrypt.compare(candidatePassword, user.password, function(err, isMatch) {
-//         if (err) return cb(err);
-//         cb(null, isMatch);
-//     });
-// };
 
 mongoose.model('Users', UserSchema);

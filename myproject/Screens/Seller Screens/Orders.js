@@ -19,7 +19,7 @@ const Orders = () => {
               
             </View>
             <View style={{ width: 100, height: 150, flex: 1, }}>
-              <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPageOrderPage} />
+              <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPageOrderPage} />
             </View>
           </Card.Content>
         </Card>
@@ -32,7 +32,7 @@ const Orders = () => {
               
             </View>
             <View style={{ width: 100, height: 150, flex: 1, }}>
-              <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
+              <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
             </View>
           </Card.Content>
         </Card>
@@ -46,7 +46,7 @@ const Orders = () => {
               <View></View>
             </View>
             <View style={{ width: 100, height: 150, flex: 1, }}>
-              <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
+              <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
             </View>
           </Card.Content>
         </Card>
@@ -59,11 +59,11 @@ const Orders = () => {
               
             </View>
             <View style={{ width: 100, height: 150, flex: 1, }}>
-              <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
+              <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
             </View>
           </Card.Content>
         </Card>
-
+        
 
       </ScrollView>
     </View>

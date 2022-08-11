@@ -18,7 +18,7 @@ const SellerDashboard = () => {
             <View>
                 <View style={{ borderBottomColor: 'black', borderLeftWidth: 2, alignSelf: 'center', padding: 20 }} />
                 <View style={{ flexDirection: 'row', paddingLeft: 20, }}>
-                    <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/Banner/banner.jpg')} style={{ width: 60, height: 60, borderRadius: 20, padding: 10 }} />
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/Banner/banner.jpg')} style={{ width: 60, height: 60, borderRadius: 20, padding: 10 }} />
                     <Text>         </Text>
 
                 </View>

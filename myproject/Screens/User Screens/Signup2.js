@@ -18,7 +18,7 @@ const Signup2 = () => {
     <View style={styles.Container}>
       {/* const [pickerValue, setPickerValue] = useState("Select City") */}
       <ScrollView>
-        <Image source={require('C:/Users/ICT/Desktop/React/Final-Year-Project-FYP-/myproject/src/assets/icon.jpg')} style={{ width: 100, height: 100, alignSelf: 'center', paddingTop: 70, }} />
+        <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/assets/icon.jpg')} style={{ width: 100, height: 100, alignSelf: 'center', paddingTop: 70, }} />
         {/* <Picker selectedValue={''} style={style.TextBox} selectedValue={pickerValue} onValueChange = {(ItemValue) => setPickerValue(ItemValue)}>
         <Picker style={styles.TextBox}>
           <Picker.Item label='Karachi' value={'Karachi'} />
