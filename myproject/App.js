@@ -56,7 +56,6 @@ const App = () => {
     <NavigationContainer>
       <UserStack />
     </NavigationContainer>
-     
 
   )
 }
