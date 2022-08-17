@@ -5,42 +5,28 @@ const jwt = require('jsonwebtoken')
 const { jwtkey } = require('../keys')
 const bcrypt = require('bcrypt')
 const router = express.Router()
-const {hash} = require('../Auth-Server/models/Users')
+const products = mongoose.model('Products')
 
 
-// UserSchema.methods.comparePassword = function (candidatePassword) {
-//     const user = this;
-//     return new Promise((resolve, reject) => {
-//         bcrypt.compare(this.comparePassword, user.password, (err, isMatch) => {
-//             if (err) {
-//                 res.send("first if te ahyan")
-//                 return reject(err)
-//             }
-//             if (!isMatch) {
-//                 res.send("second if te ahyan")
-//                 return reject(err)
-//             }
-//             resolve(true)
-//         })
-//     })
-// }
-
-
+// Signup for New User
 router.post('/signup', async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, name, address, city, role, phone, about } = req.body;
     try {
-        const user = new users({ email, password })
+        const user = new users({ email, password, name, address, city, role, phone, about })
         await user.save();
         const token = jwt.sign({ userId: user._id }, jwtkey)
-        res.send("User saved with token: "+{ token })
+        res.send({ token })
     } catch (error) {
         return res.status(442).send(error);
+        console.log("Could not save user");
     }
 
 })
 
 
 
+
+// Signin for Existing User
 router.post('/signin', async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -68,37 +54,73 @@ router.post('/signin', async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-router.post('/signin', async (req, res) => {
-    const { email, password } = req.body;
-    if (!email || !password) {
-        res.status(422).send("Must provide email or password 1")
+//Adding Products to the Database
+router.post('/addproducts', async (req, res) => {
+    const { sellerid, name, price, description, image } = req.body;
+    try {
+        const product = new products({ sellerid, name, price, description, image })
+        await product.save();
+        res.send(product)
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not save product");
     }
-    const user = await users.findOne({ email });
-    if (!user) { res.status(422).send("Must provide email or password 2") }
-
-    user = await users.comparePassword(user.password)
-    const token = jwt.sign({ userId: user._id }, jwtkey)
-    res.send({ token })
-
-    // try{
-    //     user = await users.comparePassword(password)
-    //     const token = jwt.sign({ userId: user._id }, jwtkey)  
-    //     res.send({ token })
-    // }catch(err){
-    //     return res.status(422).send({error: "must provide email and password 3"})
-    // }
 
 })
 
 
-module.exports = router 
+//Getting Products from the Database
+router.get('/getproducts', async (req, res) => {
+    try {
+        const product = await products.find();
+        res.send(product)
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not get product");
+    }
+
+})
+
+// //Deleting Products from the Database
+// router.delete('/deleteproducts/:id', async (req, res) => {
+//     try {
+//         const product = await products.findByIdAndDelete(req.params.id);
+//         res.send(product)
+//     } catch (error) {
+//         return res.status(442).send(error);
+//         console.log("Could not delete product");
+//     }
+
+// })
+
+//Updating Products in the Database
+// router.put('/updateproducts/:id', async (req, res) => {
+//     try {
+//         const product = await products.findByIdAndUpdate(req.params.id, req.body);
+//         res.send(product)
+//     } catch (error) {
+//         return res.status(442).send(error);
+//         console.log("Could not update product");
+//     }
+
+// })
+
+
+//ordering Products from the Database
+// router.get('/orderproducts', async (req, res) => {
+//     try {
+//         const product = await products.find().sort({ price: 1 });
+//         res.send(product)
+//     } catch (error) {
+//         return res.status(442).send(error);
+//         console.log("Could not order product");
+//     }
+
+// })
+
+
+
+
+
+
+module.exports = router

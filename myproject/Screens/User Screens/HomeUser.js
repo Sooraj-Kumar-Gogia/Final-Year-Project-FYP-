@@ -5,16 +5,23 @@ import { Button, Card } from "react-native-paper";
 import {NavigationContainer, useNavigation } from '@react-navigation/native';
 import ProductDisplay from './ProductDisplay';
 import styles from '../../style/ExternalStyle';
-import Navigation from '../../components/Navigation';
+// import Navigation from '../../components/Navigation';
 
 const CallProductScreen =()=>{
-navigation.navigate('ProductDisplay')
-}
+  navigation.navigate('ProductDisplay')
+  }
+
+
+
+  // const CallNavScreen =()=>{
+  //   navigation.navigate('Navigation')
+  //   }
 
 const HomeUser = () => {
 navigation = useNavigation()
   return (
     <View>
+      {/* <Navigation/> */}
       <ScrollView>
         <Card style={styles.banner}>
           <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/Banner/banner.jpg')} style={styles.ProductImage} />

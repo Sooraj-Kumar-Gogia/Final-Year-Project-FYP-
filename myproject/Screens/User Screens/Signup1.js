@@ -4,43 +4,73 @@ import * as React from 'react';
 import { View, Text, ScrollView, Image, TextInput, StyleSheet } from 'react-native';
 import { Button } from 'react-native-paper';
 import styles from '../../style/ExternalStyle';
-// import { Picker } from '@react-native-picker/picker';
-// // import { Item } from 'react-native-paper/lib/typescript/components/List/List';
-// import { useState } from 'react/cjs/react.production.min';
-import Signup2 from './Signup2';
-
-const CallSignup2Screen = () => {
-    navigation.navigate('Signup2')
-}
+import { useState } from 'react';
+import Navigation from '../../components/Navigation';
 
 
-const Signup1 = () => {
-    // navigation = useNavigation()
-    // const [email, setemail] = useState('')
-    // const [password, setpassword] = useState('')
-    // const [pickerValue, setPickerValue] = useState("Select City")
-    return (
+export default Signup1 = ({ route }) => {
+    navigation = useNavigation()
+
+    const [email, setemail] = useState('')
+    const [password, setpassword] = useState('')
+    const [repass, setrepass] = useState('')
+    const name = route.params.Name
+    const role = route.params.Role
+    const phone = route.params.Phone
+
+    const SubmitForm = () => {
+        console.log(name, email, role, password)
+        if (!email.trim()) { alert("Plaese Enter an Email") }
+        if (!password.trim()) { alert("Please Enter a Password") }
+        if (password != repass) { alert("Passwords do not match") }
+
+        else { 
+            fetch("http://10.0.2.2:3000/signup", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                    name,
+                    password,
+                    repass,
+                    role,
+                    phone
+                })
+            })
+
+                .then(res => res.json())
+                .then(data => {
+                    alert("Account Created")
+                    console.log(data)
+                    navigation.navigate('Home')
+
+                }).catch(err => {
+                    console.log(err)
+                })
+            }
+
+        }
 
 
-        <View>
-            <ScrollView>
+        return (
+            <View>
+                <ScrollView>
 
-                <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/HI.png')} style={{ width: 150, height: 200, alignSelf: 'center', paddingTop: 70 }} />
-                <Text style={styles.Heading}> Perfect! A bit more info </Text>
-                <TextInput placeholder="Email" value={email} onChangeText={(text)=>setemail} style={styles.TextBox}></TextInput>
-                {/* <TextInput placeholder='Password' secureTextEntry={true} value={passwordl} onChangeText={(text)=>setpassword} style={styles.TextBox}></TextInput> */}
-                <TextInput placeholder='Password' secureTextEntry={true} style={styles.TextBox}></TextInput>
-                <TextInput placeholder='Re-enter Password' secureTextEntry={true} style={styles.TextBox}></TextInput>
+                    <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/HI.png')} style={{ width: 150, height: 200, alignSelf: 'center', paddingTop: 70 }} />
+                    <Text style={styles.Heading}> Perfect! A bit more info </Text>
+                    <TextInput placeholder="Email" value={email} onChangeText={(text) => setemail(text)} style={styles.TextBox}></TextInput>
+                    <TextInput placeholder='Password' secureTextEntry={true} value={password} onChangeText={(text) => setpassword(text)} style={styles.TextBox}></TextInput>
+                    <TextInput placeholder='Re-enter Password' secureTextEntry={true} value={repass} onChangeText={(text) => setrepass(text)} style={styles.TextBox}></TextInput>
 
-            </ScrollView>
+                </ScrollView>
 
-            <View style={{ backgroundColor: 'white' }}>
-                <Button style={styles.button} mode="contained" onPress={CallSignup2Screen}>Next</Button>
+                <View style={{ backgroundColor: 'white' }}>
+                    <Button style={styles.button} mode="contained" onPress={SubmitForm}>Create Account</Button>
+                </View>
             </View>
-        </View>
-    )
+        )
 
-}
+    }
 
-
-export default Signup1;

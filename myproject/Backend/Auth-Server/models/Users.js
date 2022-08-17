@@ -13,8 +13,35 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
 
-    }
+    },
 
+    name: {
+        type: String,
+        required: true
+    },
+
+    address: {
+        type: String,
+    },
+
+    city: {
+        type: String,
+    },
+
+    role: {
+        type: String,
+        required: true
+    },
+
+    phone: {
+        type: Number,
+        required: true
+    },
+
+    about:
+    {
+        type: String
+    }
 })
 
 
@@ -46,7 +73,7 @@ UserSchema.pre('save', function (next) {
 
 
 
-   
+
 UserSchema.methods.comparePassword = function (candidatePassword) {
     const user = this;
     return new Promise((resolve, reject) => {

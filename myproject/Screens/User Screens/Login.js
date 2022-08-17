@@ -4,6 +4,10 @@ import { Button } from 'react-native-paper';
 import styles from '../../style/ExternalStyle';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
+// import Signup from './Signup';
+// import HomeUser from './HomeUser';
+// import Navigation from '../../components/Navigation';
+import {UserTab} from '../../components/Navigation';
 import Signup from './Signup';
 import Navigation from '../../components/Navigation';
 
@@ -11,11 +15,8 @@ const CallHomeScreen = () => {
   navigation.navigate('Home')
 }
 
-
-
 const CallSignUpScreen = () => { navigation.navigate('Signup') }
 const CallnavScreen = () => { navigation.navigate('Navigation') }
-
 
 const Login = () => {
   navigation = useNavigation();
@@ -23,26 +24,51 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const sendCrd = () =>{
-    console.log(email, password)
+  const sendCrd = () => {
+    fetch("http://10.0.2.2:3000/signin", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+
+      body: JSON.stringify({
+        "email": email,
+        "password": password
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        try {
+          if(data.token != null){
+            // CallSignUpScreen();
+            CallHomeScreen();
+          }
+        } catch (error) {
+            alert("Invalid Credentials")
+            console.log(error)
+        }
+      })
+
   }
+
   return (
     <View>
       <ScrollView>
         <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/HI.png')} style={{ width: 150, height: 200, alignSelf: 'center', paddingTop: 70 }} />
         <Text style={styles.Heading}>Welcome Back</Text>
 
-        <TextInput placeholder='Enter your Email' value={email} onChangeText={(text)=>setEmail(text)} style={styles.TextBox}></TextInput>
+        <TextInput placeholder='Enter your Email' value={email} onChangeText={(text) => setEmail(text)} style={styles.TextBox}></TextInput>
 
         <TextInput placeholder='Password'
           style={styles.TextBox}
-          secureTextEntry={true} value={password} onChangeText={(text)=>setPassword(text)}></TextInput>
+          secureTextEntry={true} value={password} onChangeText={(text) => setPassword(text)}></TextInput>
 
         <Button style={styles.button} mode="contained" onPress={sendCrd}  >Log in </Button>
 
         <View style={{ flexDirection: 'column' }}>
           <Text style={{ alignSelf: 'center', fontFamily: 'Poppins', fontWeight: 'bold', }}> {'\n\n'}Don't have Account?</Text>
-          <Text style={{ fontFamily: 'Poppins', fontWeight: 'bold', color: 'darkblue', alignSelf: 'center', }} onPress={CallHomeScreen}>Sign Up Now</Text>
+          <Text style={{ fontFamily: 'Poppins', fontWeight: 'bold', color: 'darkblue', alignSelf: 'center', }} onPress={CallSignUpScreen}>Sign Up Now</Text>
         </View>
       </ScrollView>
     </View>

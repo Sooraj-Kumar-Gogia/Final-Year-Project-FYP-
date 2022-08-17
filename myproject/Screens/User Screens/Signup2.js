@@ -36,9 +36,6 @@ const Signup2 = () => {
 
         <Text style={styles.Heading}>Almost there...</Text>
         <TextInput placeholder="Phone" style={styles.TextBox}></TextInput>
-        <TextInput placeholder="Address" style={styles.TextBox}></TextInput>
-        {/*Use google Map to compare locatoin dynamically to select the exact location*/}
-        <TextInput placeholder="Postal Code" style={styles.TextBox}></TextInput>
       </ScrollView>
 
 
