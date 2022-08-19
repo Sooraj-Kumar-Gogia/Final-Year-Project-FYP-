@@ -72,7 +72,7 @@ router.post('/addproducts', async (req, res) => {
 //Getting Products from the Database
 router.get('/getproducts', async (req, res) => {
     try {
-        const product = await products.find();
+        const product = await products.aggregate([ { $sample: { size: 5 } } ]) //find();
         res.send(product)
     } catch (error) {
         return res.status(442).send(error);
