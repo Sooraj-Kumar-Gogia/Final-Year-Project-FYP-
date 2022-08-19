@@ -65,9 +65,9 @@ const HomeUser = () => {
             <Card style={styles.productcatalog} onPress={CallProductScreen}>
               <View key={ndx}>
                 <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
-                <Card.Title title={data.name} subtitle="Card Subtitle like Category" />
+                <Card.Title title={item.name} subtitle="Card Subtitle like Category" />
                 <Card.Content>
-                  <Text>{data.price}</Text>
+                  <Text>{item.price}</Text>
                 </Card.Content>
               </View>
             </Card>
@@ -96,53 +96,37 @@ const HomeUser = () => {
             </Card.Content>
           </View>
         </Card> */}
-      </ScrollView>
-    </View>
+      {/* </ScrollView>
+    </View> */}
+
+    
+       {/* <Card style={styles.productcatalog} onPress={CallProductScreen}>
+         <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
+         <Card.Title title="Product Name here" subtitle="Card Subtitle like Category" />
+         <Card.Content>
+           <Text>Descriptione here</Text>
+         </Card.Content>
+       </Card>
+
+      <Card style={styles.productcatalog} onPress={CallProductScreen}>
+         <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
+         <Card.Title title="Product Name here" subtitle="Card Subtitle like Category" />
+         <Card.Content>
+           <Text>Descriptione here</Text>
+         </Card.Content>
+       </Card>
+
+       <Card style={styles.productcatalog} onPress={CallProductScreen}>
+         <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
+         <Card.Title title="Product Name here" subtitle="Card Subtitle like Category" />
+         <Card.Content>
+           <Text>Descriptione here</Text>
+         </Card.Content>
+       </Card>  */}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //  {/* 
-    //   <Card style={styles.productcatalog} onPress={CallProductScreen}>
-    //     <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
-    //     <Card.Title title="Product Name here" subtitle="Card Subtitle like Category" />
-    //     <Card.Content>
-    //       <Text>Descriptione here</Text>
-    //     </Card.Content>
-    //   </Card>
-
-    //   <Card style={styles.productcatalog} onPress={CallProductScreen}>
-    //     <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
-    //     <Card.Title title="Product Name here" subtitle="Card Subtitle like Category" />
-    //     <Card.Content>
-    //       <Text>Descriptione here</Text>
-    //     </Card.Content>
-    //   </Card>
-
-    //   <Card style={styles.productcatalog} onPress={CallProductScreen}>
-    //     <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
-    //     <Card.Title title="Product Name here" subtitle="Card Subtitle like Category" />
-    //     <Card.Content>
-    //       <Text>Descriptione here</Text>
-    //     </Card.Content>
-    //   </Card> */}
-
-
-    // </ScrollView>
-    // </View> 
+     </ScrollView>
+     </View> 
 
 
 

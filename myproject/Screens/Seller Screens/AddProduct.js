@@ -15,28 +15,29 @@ const AddProduct = () => {
 
 
     const sendProduct = () => {
-        fetch("http://10.0.2.2:3000/addproducts", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                sellerid,
-                productname,
-                price,
-                description,
-                imageurl
-            })
-        })
+        console.log("hello add product")
+    //     fetch("http://10.0.2.2:3000/addproducts", {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             sellerid,
+    //             productname,
+    //             price,
+    //             description,
+    //             imageurl
+    //         })
+    //     })
 
-            .then(res => res.json())
-            .then(data => {
-                alert("Product Published")
-                console.log(data)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             alert("Product Published")
+    //             console.log(data)
 
-            }).catch(err => {
-                console.log(err)
-            })
+    //         }).catch(err => {
+    //             console.log(err)
+    //         })
     }
 
     return (
