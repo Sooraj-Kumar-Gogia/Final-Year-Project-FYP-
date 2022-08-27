@@ -72,7 +72,7 @@ router.post('/addproducts', async (req, res) => {
 //Getting Products from the Database
 router.get('/getproducts', async (req, res) => {
     try {
-        const product = await products.aggregate([ { $sample: { size: 8 } } ]) //find();
+        const product = await products.aggregate([{ $sample: { size: 8 } }]) //find();
         res.send(product)
     } catch (error) {
         return res.status(442).send(error);
@@ -119,16 +119,21 @@ router.get('/getproducts', async (req, res) => {
 // })
 
 
+
 //call a product with product ID
-router.get('/getproducts/:productId', async (req, res) => {
+router.get('/fetchtproduct/:id', async (req, res) => {
     try {
-        const product = await products.findById(req.params.id) //find(); 
+        console.log(req.params.id)
+        const product = await products.findById(mongoose.Types.ObjectId(req.params.id)) //find(); 
         res.send(product)
     } catch (error) {
         return res.status(442).send(error);
         console.log("Could not get product");
     }
 })
+
+
+
 
 
 

@@ -14,6 +14,7 @@ const Bill = () => {
 
         <View style={{ flexDirection: 'column' }}>
             <ScrollView>
+                
                 <View style={{ flexDirection: 'row', }}>
                     <View>
                         <View style={{ flexDirection: 'row' }}>

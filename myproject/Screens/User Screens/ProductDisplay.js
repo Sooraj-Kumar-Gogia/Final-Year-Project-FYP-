@@ -4,39 +4,36 @@ import { View, Image, Text } from 'react-native';
 import { Button } from 'react-native-paper';
 import styles from '../../style/ExternalStyle';
 import CartScreen from './Cart';
+import Bill from './Bill';
 import { useState } from 'react';
 
 
-const CallCartScreen = () => { navigation.navigate('Cart') }
+
 
 export default ProductDisplay = ({ route }) => {
   navigation = useNavigation();
-  const [productdata, setData] = useState([])
+  const [data, setData] = useState([])
   const productId = route.params.item_id
+  // const id = mongoose.Types.ObjectId(req.params.viewexp_id);
+
+  const CallCartScreen = () => { navigation.navigate('Bill', { productId: productId }) }
 
   console.log(productId);
-  console.log(productdata)
+  console.log(data)
 
 
   React.useEffect(() => {
     try {
       console.log(productId)
       console.log("I am in try block")
-      fetch('http://10.0.2.2:3000/getproducts/${productId}')
-        .then(
-          // (res) => res.json()
-          (res) => {
-            console.log(res)
-            console.log("I am in there after raw datablock")
-            data= res.json()
-            console.log(data)
-          }
-          )
-        // .then(data => {
-        //   console.log(data);
-        //   setData(data);
-        //   console.log(data.name)
-        // })
+      fetch(`http://10.0.2.2:3000/fetchtproduct/${productId}`)
+          .then((res) => res.json())
+          .then(data => {
+            console.log(typeof (data))
+            console.log(data);
+            setData(data);
+            console.log(data.name)
+          })
     }
     catch (error) {
 
@@ -48,18 +45,17 @@ export default ProductDisplay = ({ route }) => {
   return (
 
     <View>
-
-      {/* {productdata.map((item, ndx) => (
-        <View key={ndx}>
+        <View>
           <Image source={require("C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg")} style={styles.ProductDisplayImage} />
-          <Text style={styles.NameHeading}>item.name</Text>
-          <Text style={styles.Price}>item.price</Text>
-          <Text style={styles.Description}>item.description</Text>
+          <Text style={styles.NameHeading}>{data.name}</Text>
+          <Text style={styles.Price}>{data.price}</Text>
+          <Text style={styles.Description}>{data.description}</Text>
           <Button style={styles.button} onPress={CallCartScreen}>Add to HotPot</Button>
         </View>
-      ))} */}
-      <Text>This is Done</Text>
-      {/* <Text style={{ fontSize: 20, color: 'black' }}>{productdata.name}</Text> */}
+      
+      {/* <Text>This is Done</Text> */}
+      {/* <Text style={{ fontSize: 20, color: 'black' }}>{data.name}</Text> */}
+      {/* <Text>{data}</Text> */}
 
     </View>
 

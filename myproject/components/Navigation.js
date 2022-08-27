@@ -11,7 +11,6 @@ import CartScreen from '../Screens/User Screens/Cart';
 import Message from '../Screens/User Screens/messages';
 import SellerDashboard from '../Screens/Seller Screens/Dashboard';
 import SellerNotification from '../Screens/Seller Screens/notifications';
-import Earnings from '../Screens/Seller Screens/earnings';
 import SellerProfile from '../Screens/Seller Screens/ProfileEdit';
 import Orders from '../Screens/Seller Screens/Orders';
 
@@ -37,7 +36,8 @@ function SellerTab() {
   // <NavigationContainer>
     <Tab.Navigator initialRouteName='Dashboard'>
       <Tab.Screen name="Dashboard" component={SellerDashboard} />
-      <Tab.Screen name="Earnings" component={Earnings} />
+      {/* <Tab.Screen name="Earnings" component={Earnings} /> */}
+      <Tab.Screen name="AddProduct" component={AddProduct} />
       <Tab.Screen name="Orders" component={Orders} />
       <Tab.Screen name='Notification' component={SellerNotification} />
       <Tab.Screen name='Profile' component={SellerProfile} />
