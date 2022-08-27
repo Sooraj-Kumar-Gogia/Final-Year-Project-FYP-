@@ -1,4 +1,4 @@
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { text } from 'body-parser';
 import * as React from 'react';
 import { View, Text, ScrollView, Image, TextInput, StyleSheet } from 'react-native';
