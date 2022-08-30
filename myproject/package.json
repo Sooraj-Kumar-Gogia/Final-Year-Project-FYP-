@@ -10,14 +10,18 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@freakycoder/react-native-bounceable": "^0.1.1",
     "@react-native-async-storage/async-storage": "^1.17.1",
     "@react-native-picker/picker": "^2.4.0",
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.5.2",
     "@react-navigation/stack": "^6.2.1",
+    "i": "^0.3.7",
+    "npm": "^8.18.0",
     "react": "17.0.2",
     "react-native": "^0.67.4",
+    "react-native-counter-input": "^0.1.9",
     "react-native-dropdown-picker": "^5.4.0",
     "react-native-gesture-handler": "^2.4.2",
     "react-native-in-app-review": "^4.1.1",

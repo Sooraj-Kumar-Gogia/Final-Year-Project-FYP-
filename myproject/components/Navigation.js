@@ -13,6 +13,7 @@ import SellerDashboard from '../Screens/Seller Screens/Dashboard';
 import SellerNotification from '../Screens/Seller Screens/notifications';
 import SellerProfile from '../Screens/Seller Screens/ProfileEdit';
 import Orders from '../Screens/Seller Screens/Orders';
+import AddProduct from '../Screens/Seller Screens/AddProduct';
 
 
 const Tab = createBottomTabNavigator();
@@ -33,16 +34,17 @@ function UserTab() {
 }
 
 function SellerTab() {
+  return(
   // <NavigationContainer>
     <Tab.Navigator initialRouteName='Dashboard'>
       <Tab.Screen name="Dashboard" component={SellerDashboard} />
-      {/* <Tab.Screen name="Earnings" component={Earnings} /> */}
+      <Tab.Screen name='Notification' component={SellerNotification} />
       <Tab.Screen name="AddProduct" component={AddProduct} />
       <Tab.Screen name="Orders" component={Orders} />
-      <Tab.Screen name='Notification' component={SellerNotification} />
       <Tab.Screen name='Profile' component={SellerProfile} />
     </Tab.Navigator>
-  // </NavigationContainer>
+  //  </NavigationContainer>
+  )
 
 }
 

@@ -26,7 +26,7 @@ const SellerDashboard = () => {
             </View>
 
 
-            <View style = {{flexDirection: 'row',}}>
+            <View style={{ flexDirection: 'row', }}>
                 <Card style={styles.LeftSideCard}>
                     <Card.Content>
                         <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 18, alignSelf: 'center', fontWeight: 'bold', }}>UNCOMFIRMED ORDERS</Text>

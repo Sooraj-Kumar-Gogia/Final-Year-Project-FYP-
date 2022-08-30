@@ -6,13 +6,17 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 // import Signup from './Signup';
 // import HomeUser from './HomeUser';
-// import Navigation from '../../components/Navigation';
-import {UserTab} from '../../components/Navigation';
+import { UserTab } from '../../components/Navigation';
+import { SellerTab } from '../../components/Navigation';
 import Signup from './Signup';
 import Navigation from '../../components/Navigation';
 
-const CallHomeScreen = () => {
-  navigation.navigate('Home')
+const CallHomeScreen = (userId) => {
+  console.log(userId);
+  navigation.navigate('Home', { userId: userId })
+}
+const CallSellerDashboard = (sellerId) => {
+  navigation.navigate('Dashboard', { sellerId: sellerId })
 }
 
 const CallSignUpScreen = () => { navigation.navigate('Signup') }
@@ -23,6 +27,9 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [data, setData] = useState([]);
+  let role;
+  let userId;
 
   const sendCrd = () => {
     fetch("http://10.0.2.2:3000/signin", {
@@ -39,16 +46,48 @@ const Login = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data)
-        try {
-          if(data.token != null){
-            // CallSignUpScreen();
-            CallHomeScreen();
-          }
-        } catch (error) {
-            alert("Invalid Credentials")
-            console.log(error)
+        role = data.role;
+        userId = data._id;
+        console.log(role, userId)
+        if (role.toLowerCase() === "user") {
+          // navigation.navigate('HomeUser', { userId: userId })
+          CallHomeScreen(userId)
         }
+        else if (role.toLowerCase() === "seller") {
+          // navigation.navigate('Dashboard', { userId: userId })
+          // CallSellerDashboard()4
+          // navigation.navigate('HomeUser', { userId: userId })
+          CallSellerDashboard(userId)
+        }
+        else {
+          console.log("Invalid credentials")
+          alert("Invalid Credentials")
+        }
+        setData(data)
+
       })
+
+    // try {
+    //   // console.log(data.userid)
+    //   // console.log(data.user.role)
+    //   if (data.user != null) {
+    //     console.log(data)
+    //     console.log(data.role)
+    //     console.log(data.role)
+    //     console.log(data.role)
+    //     console.log(data.role)
+    //     console.log(data.role)
+    //     // if (data.role == "user") { CallHomeScreen }
+    //     // if (data.role == "seller") { CallSellerDashboard }
+
+    //   }
+    //   // else if (data.token != null && data.user.role == "seller") {
+    //   //   CallSellerDashboard();
+    //   // }
+    // } catch (error) {
+    //   alert("Invalid Credentials")
+    //   console.log(error)
+    // }
 
   }
 

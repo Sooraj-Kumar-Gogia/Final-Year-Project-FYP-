@@ -18,25 +18,21 @@ const OrdersSchema = new mongoose.Schema({
         required: true
     },
 
-    productname: {
+    name: {
         type: String,
         required: true
     },
 
-    productprice: {
+    price: {
         type: Number,
         required: true
     },
 
-    productimage: {
+    image: {
         type: String,
         required: true
     },
 
-    productdescription: {
-        type: String,
-        required: true
-    }, 
     address: {
         type: String,
         required: true
