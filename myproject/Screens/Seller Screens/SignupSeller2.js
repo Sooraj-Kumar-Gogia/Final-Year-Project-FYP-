@@ -70,7 +70,7 @@ const SellerSignup2 = ({route}) => {
             <TextInput placeholder='Business Name i.e. Sooraj Kitchen' style = {styles.TextBox} value={BusinessName} onChangeText={(text)=>setBusinessName(text)} />
             <TextInput placeholder='About Store i.e I am a chef with experience and I sell veg dishes...' multiline={true} style={styles.ProductDescription} value={StoreDescription} onChangeText={(text)=>setStoreDescription(text)} />
             <TextInput placeholder='CNIC' style = {styles.TextBox} value={CNIC} onChangeText={(text)=>setCNIC(text)}/>
-            <Button style = {{height: 40, width: 150, marginBottom: 0}}>Upload CNIC</Button>
+            <Button style = {{height: 40, width: 150, marginBottom: 0, paddingLeft: 10}}>Upload CNIC</Button>
             <Button style={styles.button} mode="contained" onPress={SubmitForm}>Create Account</Button>
         </View>
 

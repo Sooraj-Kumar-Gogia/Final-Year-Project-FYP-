@@ -14,7 +14,6 @@ import Thankyou from './Screens/User Screens/Thankyou';
 import { UserTab } from './components/Navigation';
 import { SellerTab } from './components/Navigation';
 import AddProduct from './Screens/Seller Screens/AddProduct';
-import AddProduct2 from './Screens/Seller Screens/AddProduct2';
 import SellerDashboard from './Screens/Seller Screens/Dashboard';
 
 

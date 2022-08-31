@@ -18,30 +18,32 @@ import AddProduct from '../Screens/Seller Screens/AddProduct';
 
 const Tab = createBottomTabNavigator();
 
-function UserTab() {
+function UserTab({route}) {
+  const userId = route.params.userId;
+  console.log("I am at Navigation Screen ",userId);
   return(
   // <NavigationContainer>
-    <Tab.Navigator initialRouteName='Home'>
-      <Tab.Screen name="Home" component={HomeUser} />
-      <Tab.Screen name="Messages" component={Message} />
-      <Tab.Screen name="Orders" component={OrdersUser} />
+    <Tab.Navigator initialRouteName='Home' initialParams={{userId: userId}}>
+      <Tab.Screen name="Home" component={HomeUser} initialParams={{userId: userId}} />
+      <Tab.Screen name="Orders" component={OrdersUser} initialParams={{userId: userId}}/>
       <Tab.Screen name='Notification' component={Notification} />
-      <Tab.Screen name='Profile' component={Profile} />
-      <Tab.Screen name='Cart' component={CartScreen} />
+      <Tab.Screen name='Profile' component={Profile} initialParams={{userId: userId}} />
     </Tab.Navigator>
   // </NavigationContainer>
   )
 }
 
-function SellerTab() {
+function SellerTab({route}) {
+  const userId = route.params.userId;
+  console.log(userId);
   return(
   // <NavigationContainer>
-    <Tab.Navigator initialRouteName='Dashboard'>
-      <Tab.Screen name="Dashboard" component={SellerDashboard} />
+    <Tab.Navigator initialRouteName='Dashboard' initialParams={{userId: userId}}>
+      <Tab.Screen name="Dashboard" component={SellerDashboard} initialParams={{userId: userId}}/>
       <Tab.Screen name='Notification' component={SellerNotification} />
-      <Tab.Screen name="AddProduct" component={AddProduct} />
-      <Tab.Screen name="Orders" component={Orders} />
-      <Tab.Screen name='Profile' component={SellerProfile} />
+      <Tab.Screen name="AddProduct" component={AddProduct} initialParams={{userId: userId}} />
+      <Tab.Screen name="Orders" component={Orders} initialParams={{userId: userId}} />
+      <Tab.Screen name='Profile' component={SellerProfile} initialParams={{userId: userId}} />
     </Tab.Navigator>
   //  </NavigationContainer>
   )

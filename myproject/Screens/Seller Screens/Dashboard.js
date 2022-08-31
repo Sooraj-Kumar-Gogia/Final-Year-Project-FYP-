@@ -3,7 +3,12 @@ import { Card, Button } from 'react-native-paper';
 import { View, Text, Image } from 'react-native';
 import styles from '../../style/ExternalStyle';
 
-const SellerDashboard = () => {
+const SellerDashboard = ({route}) => {
+
+    const sellerid = route.params.userId;
+    console.log("I am at Seller Dasbboard baby", sellerid)
+    console.log(sellerid);
+
     return (
         <View style={{ paddingTop: 20, }}>
             <Card style={styles.SellerDashboardCards}>

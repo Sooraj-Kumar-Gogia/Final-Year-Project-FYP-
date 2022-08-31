@@ -13,11 +13,12 @@ import Navigation from '../../components/Navigation';
 import SellerSignup from '../Seller Screens/Signup_Seller';
 
 const CallHomeScreen = (userId) => {
-  console.log(userId);
+  console.log("I am CallHomeScreen",userId);
   navigation.navigate('Home', { userId: userId })
 }
-const CallSellerDashboard = (sellerId) => {
-  navigation.navigate('Dashboard', { sellerId: sellerId })
+const CallSellerDashboard = (userId) => {
+  console.log("I am CallSellerScreen",userId);
+  navigation.navigate('Dashboard', { userId: userId })
 }
 
 const CallSignUpScreen = () => { navigation.navigate('Signup') }
@@ -50,15 +51,11 @@ const Login = () => {
         console.log(data)
         role = data.role;
         userId = data._id;
-        console.log(role, userId)
+        // console.log(role, userId)
         if (role.toLowerCase() === "user") {
-          // navigation.navigate('HomeUser', { userId: userId })
           CallHomeScreen(userId)
         }
         else if (role.toLowerCase() === "seller") {
-          // navigation.navigate('Dashboard', { userId: userId })
-          // CallSellerDashboard()4
-          // navigation.navigate('HomeUser', { userId: userId })
           CallSellerDashboard(userId)
         }
         else {
