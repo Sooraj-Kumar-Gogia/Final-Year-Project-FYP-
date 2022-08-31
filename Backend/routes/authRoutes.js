@@ -11,9 +11,9 @@ const orders = mongoose.model('Orders')
 
 // Signup for New User
 router.post('/signup', async (req, res) => {
-    const { email, password, name, address, city, role, phone, about } = req.body;
+    const { email, password, name, CNIC, BusinessName, role, phone, StoreDescription, CNICurl } = req.body;
     try {
-        const user = new users({ email, password, name, address, city, role, phone, about })
+        const user = new users({ email, password, name, CNIC, BusinessName, role, phone, StoreDescription, CNICurl })
         await user.save();
         const token = jwt.sign({ userId: user._id }, jwtkey)
         res.send({ token })

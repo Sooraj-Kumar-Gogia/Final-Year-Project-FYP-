@@ -10,6 +10,7 @@ import { UserTab } from '../../components/Navigation';
 import { SellerTab } from '../../components/Navigation';
 import Signup from './Signup';
 import Navigation from '../../components/Navigation';
+import SellerSignup from '../Seller Screens/Signup_Seller';
 
 const CallHomeScreen = (userId) => {
   console.log(userId);
@@ -20,6 +21,7 @@ const CallSellerDashboard = (sellerId) => {
 }
 
 const CallSignUpScreen = () => { navigation.navigate('Signup') }
+const CallSellerSignup = () => { navigation.navigate('SellerSignup') }
 const CallnavScreen = () => { navigation.navigate('Navigation') }
 
 const Login = () => {
@@ -107,7 +109,10 @@ const Login = () => {
 
         <View style={{ flexDirection: 'column' }}>
           <Text style={{ alignSelf: 'center', fontFamily: 'Poppins', fontWeight: 'bold', }}> {'\n\n'}Don't have Account?</Text>
-          <Text style={{ fontFamily: 'Poppins', fontWeight: 'bold', color: 'darkblue', alignSelf: 'center', }} onPress={CallSignUpScreen}>Sign Up Now</Text>
+          <Text style={{ fontFamily: 'Poppins', fontWeight: 'bold', color: 'darkblue', alignSelf: 'center', }} onPress={CallSignUpScreen}>Sign up</Text>
+          <Text style={{ alignSelf: 'center', fontFamily: 'Poppins', fontWeight: 'bold', }}> {'\n\n'}OR</Text>
+          <Text style={{ fontFamily: 'Poppins', fontWeight: 'bold', color: 'darkblue', alignSelf: 'center', }} onPress={CallSellerSignup}>Become a Seller</Text>
+
         </View>
       </ScrollView>
     </View>

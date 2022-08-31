@@ -7,6 +7,8 @@ import CartScreen from './Screens/User Screens/Cart';
 import ProductDisplay from './Screens/User Screens/ProductDisplay';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import SellerSignup from './Screens/Seller Screens/Signup_Seller';
+import SellerSignup2 from './Screens/Seller Screens/SignupSeller2';
 import Bill from './Screens/User Screens/Bill';
 import Thankyou from './Screens/User Screens/Thankyou';
 import { UserTab } from './components/Navigation';
@@ -26,23 +28,25 @@ function UserStack() {
       <Stack.Screen name="Dashboard" component={SellerTab} />
       <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="Signup1" component={Signup1} />
+      <Stack.Screen name="SellerSignup" component={SellerSignup} />
+      <Stack.Screen name="SellerSignup2" component={SellerSignup2} />
     </Stack.Navigator>
 
   );
 }
 
 
-function SellerStack() {
-  return (
-    <Stack.Navigator initialRouteName='Dashboard' screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Dashboard" component={SellerDashboard} />
-      <Stack.Screen name="Add Product" component={AddProduct} />
-      <Stack.Screen name="Add Product2" component={AddProduct2} />
-    </Stack.Navigator>
+// function SellerStack() {
+//   return (
+//     <Stack.Navigator initialRouteName='Dashboard' screenOptions={{ headerShown: false }}>
+//       <Stack.Screen name="Login" component={Login} />
+//       <Stack.Screen name="Dashboard" component={SellerDashboard} />
+//       <Stack.Screen name="Add Product" component={AddProduct} />
+//       <Stack.Screen name="Add Product2" component={AddProduct2} />
+//     </Stack.Navigator>
 
-  );
-}
+//   );
+// }
 
 
 
