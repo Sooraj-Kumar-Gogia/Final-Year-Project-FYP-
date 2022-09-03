@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt')
 const router = express.Router()
 const products = mongoose.model('Products')
 const orders = mongoose.model('Orders')
-
+const uncomfirmedorders = mongoose.model('UncomfirmedOrders')
 
 // Signup for New User
 router.post('/signup', async (req, res) => {
@@ -109,8 +109,67 @@ router.post('/addproducts', async (req, res) => {
 
 })
 
+
+
+//Placing Temporary unComfirmed Orders
+router.post('/uncomfirmedorders', async (req, res) => {
+    const { userid, sellerid, productid, name, quantity, price, city, phone, address, image } = req.body;
+    try {
+        const uncomfirmedorder = new uncomfirmedorders({ userid, sellerid, productid, name, quantity, price, city, phone, address, image })
+        await uncomfirmedorder.save();
+        res.send(uncomfirmedorder)
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not save uncomfirmed order");
+    }
+}),
+
+
+//move and delete orders 
+router.post('/confirmanddeleteorder/:id', async (req, res) => {
+    try {
+        const confirmed = await uncomfirmedorders.findById(req.params.id);
+        const sellerid = confirmed.sellerid
+        const userid = confirmed.userid
+        const productid = confirmed.productid
+        const name = confirmed.name 
+        const price = confirmed.price 
+        const description = confirmed.description 
+        const image = confirmed.image 
+        const address = confirmed.address 
+        const city = confirmed.city 
+        const phone = confirmed.phone 
+        const quantity = confirmed.quantity
+        const order = new orders({ sellerid, userid, productid, name, price, description, image, address, city, phone, quantity })
+        await order.save();
+        await uncomfirmedorders.findByIdAndDelete(orderid);
+        res.send(order)
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not delete order");
+    }
+}),
+
+
+//Delete uncomfirmed orders
+router.post('/deleteuncomfirmedorder/:id', async (req, res) => {
+    try {
+        const orderid = req.params.id;
+        await uncomfirmedorders.findByIdAndDelete(orderid);
+        res.send("Order Deleted")
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not delete order");
+    }
+}),
+
+ 
+
+
+
+//order placing
 router.post('/orderproducts', async (req, res) => {
-    const { sellerid, userid, productid, name, price, description, image, address, city, phone } = req.body;
+    const { sellerid, userid, productid, name, price, description, image, address, city, phone, quantity } = req.body;
     try {
         const order = new orders({ sellerid, userid, productid, name, price, description, image, address, city, phone })
         await order.save();
@@ -165,30 +224,7 @@ router.get('/getproducts', async (req, res) => {
 
 // })
 
-//Updating Products in the Database
-// router.put('/updateproducts/:id', async (req, res) => {
-//     try {
-//         const product = await products.findByIdAndUpdate(req.params.id, req.body);
-//         res.send(product)
-//     } catch (error) {
-//         return res.status(442).send(error);
-//         console.log("Could not update product");
-//     }
 
-// })
-
-
-//ordering Products from the Database
-// router.get('/orderproducts', async (req, res) => {
-//     try {
-//         const product = await products.find().sort({ price: 1 });
-//         res.send(product)
-//     } catch (error) {
-//         return res.status(442).send(error);
-//         console.log("Could not order product");
-//     }
-
-// })
 
 
 

@@ -14,7 +14,9 @@ import CounterInput from "react-native-counter-input";
 export default ProductDisplay = ({ route }) => {
   navigation = useNavigation();
   const [data, setData] = useState([])
+
   const productId = route.params.item_id
+  
   const [counter, setCounter] = useState(1)
   // const id = mongoose.Types.ObjectId(req.params.viewexp_id);
 

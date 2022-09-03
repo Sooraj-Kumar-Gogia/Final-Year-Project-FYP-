@@ -36,6 +36,18 @@ const styles = StyleSheet.create(
 
     },
 
+    rejectbutton:
+    {
+      width: "90%",
+      marginHorizontal: 20,
+      borderRadius: 10,
+      height: 50,
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: 40,
+      backgroundColor: "grey",
+    },
+
     ProductDisplayImage: {
       width: '100%',
       height: '50%',

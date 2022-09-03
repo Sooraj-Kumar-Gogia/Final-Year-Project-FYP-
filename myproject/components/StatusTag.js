@@ -16,7 +16,14 @@ const NotApprovedTag = () => {
 
 }
 
+const NewOrder = () => {
+  return (
+    <View style={{backgroundColor: 'green', height: 20, width: 120, alignContent: 'center', borderRadius: 10,}}><Text style={{color: 'white', alignSelf: 'center'}}>NEW ORDER</Text></View>
+  )
 
-export  {NotApprovedTag, ApprovalTag};
+}
+
+
+export  {NotApprovedTag, ApprovalTag, NewOrder} ;
 
 

@@ -1,7 +1,7 @@
-//Orders Schema 
+//unComfirmed Orders Schema 
 const mongoose = require('mongoose')
 
-const OrdersSchema = new mongoose.Schema({
+const UncomfirmedOrdersSchema = new mongoose.Schema({
     
     sellerid: {
         type: String,
@@ -51,4 +51,4 @@ const OrdersSchema = new mongoose.Schema({
 
 })
 
-mongoose.model('Orders', OrdersSchema);
+mongoose.model('UncomfirmedOrders', UncomfirmedOrdersSchema);

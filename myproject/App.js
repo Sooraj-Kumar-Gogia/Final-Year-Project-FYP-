@@ -3,7 +3,6 @@ import Login from './Screens/User Screens/Login';
 import HomeUser from './Screens/User Screens/HomeUser';
 import Signup from './Screens/User Screens/Signup';
 import Signup1 from './Screens/User Screens/Signup1';
-import CartScreen from './Screens/User Screens/Cart';
 import ProductDisplay from './Screens/User Screens/ProductDisplay';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -15,6 +14,8 @@ import { UserTab } from './components/Navigation';
 import { SellerTab } from './components/Navigation';
 import AddProduct from './Screens/Seller Screens/AddProduct';
 import SellerDashboard from './Screens/Seller Screens/Dashboard';
+import OrdersApproval from './Screens/Seller Screens/OrderApproval';
+import OrderDetailsConfirmation from './Screens/Seller Screens/OrderDetailsConfirmation';
 
 
 const Stack = createStackNavigator();
@@ -28,11 +29,18 @@ function UserStack() {
       <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="Signup1" component={Signup1} />
       <Stack.Screen name="SellerSignup" component={SellerSignup} />
-      <Stack.Screen name="SellerSignup2" component={SellerSignup2} />
+      <Stack.Screen name="SellerSignup2" component={SellerSignup2} /> 
+      <Stack.Screen name="OrderApproval" component={OrdersApproval} />
+      {/* <Stack.Screen name="OrderDetailsConfirmation" component={OrderDetailsConfirmation} /> */}
+      <Stack.Screen name="OrderDetailsConfirmation" component={OrderDetailsConfirmation} />
+      <Stack.Screen name="ProductDisplay" component={ProductDisplay} />
+      <Stack.Screen name="AddProduct" component={AddProduct} />
+      {/* <Stack.Screen name="ProductDisplay" component={ProductDisplay} /> */}
+      <Stack.Screen name="Bill" component={Bill} />
     </Stack.Navigator>
 
   );
-}
+} 
 
 
 // function SellerStack() {
@@ -52,8 +60,10 @@ function UserStack() {
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer > 
       <UserStack />
+      {/* <OrdersApproval/> */}
+      {/* <OrderDetailsConfirmation/> */}
       {/* <SellerTab /> */}
       {/* <SellerStack/> */}
       {/* <SellerDashboard/> */}
@@ -64,8 +74,6 @@ const App = () => {
       {/* <Signup1></Signup1> */}
       {/* <AddProduct/> */}
     </NavigationContainer>
-    // <HomeUser />
-
   )
 }
 
