@@ -4,16 +4,15 @@ import { Button, Card } from 'react-native-paper';
 import styles from '../../style/ExternalStyle';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import SellerDashboard from './Dashboard';
 
-const CallHomeScreen =(props) => {
-    alert("Order Completed");
-    navigation.navigate('Home');
-}
-
+// const CallHomeScreen =(props) => {
+//     alert("Order Completed");
+//     navigation.navigate('Home');
+// }
 
 
-export default OrderDetailsConfirmation = () => {
+
+export default CompleteOrder = () => {
     navigation = useNavigation();
 
     return (
@@ -30,8 +29,8 @@ export default OrderDetailsConfirmation = () => {
                 <Text style={{fontSize: 14, color:'black'}}>Phone Number</Text>
                 <Text style={{fontSize: 14, color:'black'}}>City</Text>
                 <Text style={{fontSize: 14, color:'black'}}>Address</Text>
-                <Button style={styles.button} onPress={CallSellerDashboard}>Order Completed</Button>
-                <Button style={styles.rejectbutton} onPress={RejectOrder} >Complain Seller</Button>
+                <Button style={styles.button} >Order Completed</Button>
+                <Button style={styles.rejectbutton} >Complain Seller</Button>
             </ScrollView>
 
         </View>

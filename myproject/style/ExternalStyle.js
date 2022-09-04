@@ -45,7 +45,7 @@ const styles = StyleSheet.create(
       alignItems: "center",
       justifyContent: "center",
       marginTop: 40,
-      backgroundColor: "grey",
+      backgroundColor: "#DEDEDE",
     },
 
     ProductDisplayImage: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create(
 
     NameHeading: {
       fontSize: 30,
-      color: 'darkblue',
+      color: 'black',
       fontFamily: 'Poppins',
       fontWeight: 'bold',
       padding: 10,
@@ -176,13 +176,14 @@ const styles = StyleSheet.create(
 
     SellerDashboardCards:
     {
-      borderRadius: 30,
-      width: '80%',
-      height: 100,
-      alignSelf: 'center',
-      backgroundColor: 'orange',
+      borderRadius: 20,
+      width: '40%',
+      height: 180,
+      // alignSelf: 'left',
+      backgroundColor: '#146ca4',
       color: 'white',
       alignContent: 'center',
+      margin: 10
     },
 
     RightSideCard: {

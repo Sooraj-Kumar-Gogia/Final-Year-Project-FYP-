@@ -1,12 +1,24 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ScrollView, Image } from 'react-native';
+import {Button} from 'react-native-paper';
+import styles from '../../style/ExternalStyle';
 
 const SellerProfile = () => {
     return (
         <View>
-            <Text>This is profile screen!</Text>
-        </View>
+        <ScrollView>
+          <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/users/img_avatar.png')} style={styles.UserProfileImage} />
+          <Text style={styles.Heading}>Sooraj Kumar</Text>
+          <Text style={styles.Description}>Seller ID: 62fb3292e9bd362e0513252d</Text>
+          <Text style={styles.Description} >Email: soorajkumar@yahoo.com </Text>
+          <Text style={styles.Description}>Phone: 3023610522</Text>
+          <Text style={styles.Description}>About: I am at top level cook with experience. </Text>
+          <Button style={styles.button}>Contact Support</Button>
+          <Button style={styles.rejectbutton}>Log out</Button>
+        </ScrollView>
+      </View>
     )
 }
 
 export default SellerProfile;
+

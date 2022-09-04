@@ -52,7 +52,7 @@ const AddProduct = ({route}) => {
                 <TextInput placeholder='Description' multiline style={styles.ProductDescription} value={description} onChangeText={(text) => setdescription(text)}></TextInput>
                 {/* <TextInput placeholder='Category' style = {styles.TextBox}></TextInput> */}
                 <TextInput placeholder='Price' keyboardType='numeric' style={styles.TextBox} value={price} onChangeText={(text) => setprice(text)}></TextInput>
-                <Button>Select Image</Button>
+                <Button style={styles.rejectbutton}>Select Image</Button>
                 <Button style={styles.button} mode="contained" onPress={sendProduct}>Publish Product</Button>
             </ScrollView>
             

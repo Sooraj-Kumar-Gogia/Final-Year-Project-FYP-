@@ -3,7 +3,6 @@ import * as React from 'react';
 import { View, Image, Text, ScrollView } from 'react-native';
 import { Button } from 'react-native-paper';
 import styles from '../../style/ExternalStyle';
-import CartScreen from './Cart';
 import Bill from './Bill';
 import { useState } from 'react';
 import CounterInput from "react-native-counter-input";
@@ -61,7 +60,7 @@ export default ProductDisplay = ({ route }) => {
             setCounter(counter)
           }}
         />
-        <Button style={styles.button} onPress={CallCartScreen}>Add to HotPot</Button>
+        <Button style={styles.button} onPress={CallCartScreen}>ORDER NOW</Button>
       </View>
 
       {/* <Text>This is Done</Text> */}

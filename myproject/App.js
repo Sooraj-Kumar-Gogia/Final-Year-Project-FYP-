@@ -17,6 +17,7 @@ import SellerDashboard from './Screens/Seller Screens/Dashboard';
 import OrdersApproval from './Screens/Seller Screens/OrderApproval';
 import OrderDetailsConfirmation from './Screens/Seller Screens/OrderDetailsConfirmation';
 import Orders from './Screens/Seller Screens/Orders';
+import CompleteOrder from './Screens/User Screens/CompleteOrder';
 
 
 const Stack = createStackNavigator();
@@ -36,7 +37,7 @@ function UserStack() {
       <Stack.Screen name="OrderDetailsConfirmation" component={OrderDetailsConfirmation} />
       <Stack.Screen name="ProductDisplay" component={ProductDisplay} />
       <Stack.Screen name="AddProduct" component={AddProduct} />
-      {/* <Stack.Screen name="ProductDisplay" component={ProductDisplay} /> */}
+      <Stack.Screen name="CompleteOrder" component={CompleteOrder} />
       <Stack.Screen name="Bill" component={Bill} />
     </Stack.Navigator>
 
@@ -75,6 +76,7 @@ const App = () => {
       {/* <HomeUser/> */}
       {/* <Signup1></Signup1> */}
       {/* <AddProduct/> */}
+      {/* <CompleteOrder/> */}
     </NavigationContainer>
   )
 }

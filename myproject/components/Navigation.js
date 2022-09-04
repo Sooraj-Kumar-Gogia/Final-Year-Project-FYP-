@@ -29,7 +29,7 @@ function UserTab({ route }) {
     <Tab.Navigator initialRouteName='Home' initialParams={{ userId: userId }}>
       <Tab.Screen name="Home" component={HomeUser} initialParams={{ userId: userId }} />
       <Tab.Screen name="Orders" component={OrdersUser} initialParams={{ userId: userId }} />
-      <Tab.Screen name='Notification' component={Notification} />
+      {/* <Tab.Screen name='Notification' component={Notification} /> */}
       <Tab.Screen name='Profile' component={Profile} initialParams={{ userId: userId }} />
     </Tab.Navigator>
     // </NavigationContainer>
@@ -43,7 +43,7 @@ function SellerTab({ route }) {
     // <NavigationContainer>
     <Tab.Navigator initialRouteName='Dashboard' initialParams={{ userId: userId }}>
       <Tab.Screen name="Dashboard" component={SellerDashboard} initialParams={{ userId: userId }} />
-      <Tab.Screen name='Notification' component={SellerNotification} />
+      {/* <Tab.Screen name='Notification' component={SellerNotification} /> */}
       <Tab.Screen name="AddProduct" component={AddProduct} initialParams={{ userId: userId }} />
       <Tab.Screen name="Orders" component={Orders} initialParams={{ userId: userId }} />
       <Tab.Screen name='Profile' component={SellerProfile} initialParams={{ userId: userId }} />
