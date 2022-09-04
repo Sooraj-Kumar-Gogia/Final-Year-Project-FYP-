@@ -18,6 +18,9 @@ import OrdersApproval from './Screens/Seller Screens/OrderApproval';
 import OrderDetailsConfirmation from './Screens/Seller Screens/OrderDetailsConfirmation';
 import Orders from './Screens/Seller Screens/Orders';
 import CompleteOrder from './Screens/User Screens/CompleteOrder';
+import AdminDashboard from './Screens/Admin Screens/Admin_Dashboard';
+import ComplainsAdmin from './Screens/Admin Screens/ComplainsAdmin';
+import DeleteUserAdmin from './Screens/Admin Screens/DeleteUserAdmin';
 
 
 const Stack = createStackNavigator();
@@ -39,6 +42,10 @@ function UserStack() {
       <Stack.Screen name="AddProduct" component={AddProduct} />
       <Stack.Screen name="CompleteOrder" component={CompleteOrder} />
       <Stack.Screen name="Bill" component={Bill} />
+      <Stack.Screen name ="AdminDashboard" component={AdminDashboard}/>
+      <Stack.Screen name ="ComplainsAdmin" component={ComplainsAdmin}/>
+      <Stack.Screen name ="DeleteUserAdmin" component={DeleteUserAdmin}/>
+
     </Stack.Navigator>
 
   );
@@ -63,7 +70,8 @@ function UserStack() {
 const App = () => {
   return (
     <NavigationContainer > 
-      <UserStack />
+      <AdminDashboard/>
+      {/* <UserStack /> */}
       {/* <OrdersApproval/> */}
       {/* <ProductDisplay/> */}
       {/* <OrderDetailsConfirmation/> */}
