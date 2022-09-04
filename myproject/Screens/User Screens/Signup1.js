@@ -44,7 +44,8 @@ export default Signup1 = ({ route }) => {
                 .then(data => {
                     alert("Account Created")
                     console.log(data)
-                    navigation.navigate('Home')
+                    const userId = data._id
+                    navigation.navigate('Home', {userId})
 
                 }).catch(err => {
                     console.log(err)

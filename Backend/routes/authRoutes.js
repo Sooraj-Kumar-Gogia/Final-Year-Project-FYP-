@@ -8,6 +8,7 @@ const router = express.Router()
 const products = mongoose.model('Products')
 const orders = mongoose.model('Orders')
 const uncomfirmedorders = mongoose.model('UncomfirmedOrders')
+const complains = mongoose.model('Complains')
 
 // Signup for New User
 router.post('/signup', async (req, res) => {
@@ -48,7 +49,7 @@ router.post('/signin', async (req, res) => {
             } else {
                 console.log("Password matches!")
                 const token = jwt.sign({ userId: user._id }, jwtkey)
-                console.log("Token", {token})
+                console.log("Token", { token })
                 res.send(user)
                 // const user = user.r
                 // res.send()
@@ -125,45 +126,103 @@ router.post('/uncomfirmedorders', async (req, res) => {
 }),
 
 
-//move and delete orders 
-router.post('/confirmanddeleteorder/:id', async (req, res) => {
-    try {
-        const confirmed = await uncomfirmedorders.findById(req.params.id);
-        const sellerid = confirmed.sellerid
-        const userid = confirmed.userid
-        const productid = confirmed.productid
-        const name = confirmed.name 
-        const price = confirmed.price 
-        const description = confirmed.description 
-        const image = confirmed.image 
-        const address = confirmed.address 
-        const city = confirmed.city 
-        const phone = confirmed.phone 
-        const quantity = confirmed.quantity
-        const order = new orders({ sellerid, userid, productid, name, price, description, image, address, city, phone, quantity })
-        await order.save();
-        await uncomfirmedorders.findByIdAndDelete(orderid);
-        res.send(order)
-    } catch (error) {
-        return res.status(442).send(error);
-        console.log("Could not delete order");
-    }
-}),
+    //move and delete orders 
+    router.post('/confirmanddeleteorder', async (req, res) => {
+        const { id } = req.body;
+        console.log(id)
+        try {
+            const confirmed = await uncomfirmedorders.findById(id);
+            const sellerid = confirmed.sellerid
+            const userid = confirmed.userid
+            const productid = confirmed.productid
+            const name = confirmed.name
+            const price = confirmed.price
+            const description = confirmed.description
+            const image = confirmed.image
+            const address = confirmed.address
+            const city = confirmed.city
+            const phone = confirmed.phone
+            const quantity = confirmed.quantity
+            const order = new orders({ sellerid, userid, productid, name, price, description, image, address, city, phone, quantity })
+            await order.save();
+            await uncomfirmedorders.findByIdAndDelete(id)
+            res.send(order)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not delete order");
+        }
+    }),
 
 
-//Delete uncomfirmed orders
-router.post('/deleteuncomfirmedorder/:id', async (req, res) => {
+    //Delete uncomfirmed orders
+    router.post('/deleteuncomfirmedorder/:id', async (req, res) => {
+        try {
+            const orderid = req.params.id;
+            await uncomfirmedorders.findByIdAndDelete(orderid);
+            res.send("Order Deleted")
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not delete order");
+        }
+    }),
+
+    //for fetching unconfiremd order by seller id
+    router.get('/fetchunconfirmedorders/:id', async (req, res) => {
+        console.log(req.params.id)
+        await uncomfirmedorders.find({ sellerid: req.params.id })
+            .then(data => {
+                res.send(data)
+            })
+
+            .catch(err => {
+                res.send(err)
+            })
+
+    })
+
+//count unconmirmed orders
+router.get('/countuncomfirmedorders/:id', async (req, res) => {
+    console.log(req.params.id)
     try {
         const orderid = req.params.id;
-        await uncomfirmedorders.findByIdAndDelete(orderid);
-        res.send("Order Deleted")
+        await uncomfirmedorders.find({ sellerid: id })
+        res.send(uncomfirmedorders)
     } catch (error) {
         return res.status(442).send(error);
         console.log("Could not delete order");
     }
 }),
 
- 
+
+    //Submit Complains 
+    router.post('/submitcomplain', async (req, res) => {
+        const { sellerid, userid, complain, complainby } = req.body;
+        try {
+            const filecomplain = new complains({ sellerid, userid, complain, complainby })
+            await filecomplain.save();
+            res.send(filecomplain)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not save product");
+        }
+    }),
+
+
+
+    //Order Products
+    router.post('/orderproducts', async (req, res) => {
+        const { sellerid, userid, productid, name, price, description, image, address, city, phone, quantity } = req.body;
+        try {
+            const order = new orders({ sellerid, userid, productid, name, price, description, image, address, city, phone })
+            await order.save();
+            res.send(order)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not save product");
+        }
+
+    })
+
 
 
 
@@ -184,16 +243,16 @@ router.post('/orderproducts', async (req, res) => {
 
 
 //for fetching orders by sellers id
-router.get('/fetchorders/:id', async(req, res) => {
+router.get('/fetchorders/:id', async (req, res) => {
     console.log(req.params.id)
-    await orders.find({sellerid: req.params.id})
-    .then(data => {
-        res.send(data)
-    })
+    await orders.find({ sellerid: req.params.id })
+        .then(data => {
+            res.send(data)
+        })
 
-    .catch(err => {
-        res.send(err)
-    })
+        .catch(err => {
+            res.send(err)
+        })
 
 })
 

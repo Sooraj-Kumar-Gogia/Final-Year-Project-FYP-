@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, ScrollView } from 'react-native';
 import { Button } from 'react-native-paper';
 import styles from '../../style/ExternalStyle';
 import CartScreen from './Cart';
@@ -50,11 +50,12 @@ export default ProductDisplay = ({ route }) => {
 
     <View>
       <View>
+        
         <Image source={require("C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg")} style={styles.ProductDisplayImage} />
         <Text style={styles.NameHeading}>{data.name}</Text>
         <Text style={styles.Price}>{data.price}</Text>
         <Text style={styles.Description}>{data.description}</Text>
-        <CounterInput
+        <CounterInput style={{width: 150, height: 70, marginLeft: 20,}} horizontal={true}
           value={counter}
           onChange={(counter) => {
             setCounter(counter)
