@@ -5,9 +5,8 @@ import { useState } from 'react';
 import styles from '../../style/ExternalStyle';
 
 
-const seller_id = "123456789";
-const Orders = () => {
-
+const Orders = ({route}) => {
+  const seller_id = route.params.userId;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,8 +27,6 @@ const Orders = () => {
 
 
 
-
-
   return (
 
     <View>
@@ -40,9 +37,9 @@ const Orders = () => {
             <Card style={styles.orderlist} key={ndx}>
               <Card.Content style={{ flex: 1, flexDirection: 'row', }}>
                 <View style={{ width: 100, height: 150, flex: 2, }}>
-                  <Text style={{ fontFamily: 'roboto', fontSize: 20, color: '#000000', }}>{item.name}</Text>
-                  <Text style={{ fontFamily: 'roboto', fontSize: 14, color: '#dedede' }}>Ordered by {item.userid}</Text>
-                  <Text style={{ fontFamily: 'roboto', fontSize: 14, color: '#00000' }}>Price {item.price}</Text>
+                  <Text style={{ fontFamily: 'Poppins', fontSize: 20, color: '#000000', }}>{item.name}</Text>
+                  <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#dedede' }}>Ordered by {item.userid}</Text>
+                  <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#00000' }}>Price {item.price}</Text>
 
                 </View>
                 <View style={{ width: 100, height: 150, flex: 1, }}>

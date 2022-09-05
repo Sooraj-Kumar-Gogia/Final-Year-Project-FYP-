@@ -6,6 +6,9 @@ import styles from '../../style/ExternalStyle';
 import Bill from './Bill';
 import { useState } from 'react';
 import CounterInput from "react-native-counter-input";
+import { useEffect } from 'react';
+import FillOrderForm from './FillOrderForm';
+
 
 
 
@@ -15,11 +18,10 @@ export default ProductDisplay = ({ route }) => {
   const [data, setData] = useState([])
 
   const productId = route.params.item_id
+  const userId = route.params.userId;
   
   const [counter, setCounter] = useState(1)
   // const id = mongoose.Types.ObjectId(req.params.viewexp_id);
-
-  const CallCartScreen = () => { navigation.navigate('Bill', { productId: productId }) }
 
   console.log(productId);
   console.log(data)
@@ -45,6 +47,10 @@ export default ProductDisplay = ({ route }) => {
     }
   }, [])
 
+
+  const CallFillOrderForm = () => { navigation.navigate('FillOrderForm', { productId: productId, productname: data.name, price: data.price, quantity: counter, sellerId: data.sellerid, userid: userId  }) }
+
+
   return (
 
     <View>
@@ -60,23 +66,12 @@ export default ProductDisplay = ({ route }) => {
             setCounter(counter)
           }}
         />
-        <Button style={styles.button} onPress={CallCartScreen}>ORDER NOW</Button>
+        <Button style={styles.button} onPress={CallFillOrderForm}>ORDER NOW</Button>
       </View>
-
-      {/* <Text>This is Done</Text> */}
-      {/* <Text style={{ fontSize: 20, color: 'black' }}>{data.name}</Text> */}
-      {/* <Text>{data}</Text> */}
 
     </View>
 
 
-    // <View>
-    //   <Image source={require("C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg")} style={styles.ProductDisplayImage} />
-    //   <Text style={styles.NameHeading}>productdata.name</Text>
-    //   <Text style={styles.Price}>productdata.price</Text>
-    //   <Text style={styles.Description}>productdata.description</Text>
-    //   <Button style={styles.button} onPress={CallCartScreen}>Add to HotPot</Button>
-    // </View>
 
 
 

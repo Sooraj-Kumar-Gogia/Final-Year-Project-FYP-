@@ -16,12 +16,13 @@ const CallProductScreen = () => {
 //   navigation.navigate('Navigation')
 //   }
 
-const HomeUser = () => {
+const HomeUser = ({route}) => {
   navigation = useNavigation()
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [name, setname] = useState('');
   const [price, setprice] = useState('');
+  const user = route.params.userId;
 
 
   React.useEffect(() => {
@@ -51,7 +52,7 @@ const HomeUser = () => {
         </Card>
         {data.map((item, ndx) => (
           <View>
-            <Card style={styles.productcatalog} onPress={()=>{navigation.navigate('ProductDisplay', { item_id: item._id })}}>
+            <Card style={styles.productcatalog} onPress={()=>{navigation.navigate('ProductDisplay', { item_id: item._id, userId: user })}}>
               <View key={ndx}>
                 <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
                 <Card.Title title={item.name} subtitle={item._id} />

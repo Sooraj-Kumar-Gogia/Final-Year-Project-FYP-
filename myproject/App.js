@@ -12,6 +12,7 @@ import Bill from './Screens/User Screens/Bill';
 import Thankyou from './Screens/User Screens/Thankyou';
 import { UserTab } from './components/Navigation';
 import { SellerTab } from './components/Navigation';
+import { AdminTab } from './components/Navigation';
 import AddProduct from './Screens/Seller Screens/AddProduct';
 import SellerDashboard from './Screens/Seller Screens/Dashboard';
 import OrdersApproval from './Screens/Seller Screens/OrderApproval';
@@ -21,6 +22,7 @@ import CompleteOrder from './Screens/User Screens/CompleteOrder';
 import AdminDashboard from './Screens/Admin Screens/Admin_Dashboard';
 import ComplainsAdmin from './Screens/Admin Screens/ComplainsAdmin';
 import DeleteUserAdmin from './Screens/Admin Screens/DeleteUserAdmin';
+import FillOrderForm from './Screens/User Screens/FillOrderForm';
 
 
 const Stack = createStackNavigator();
@@ -31,25 +33,27 @@ function UserStack() {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Home" component={UserTab} />
       <Stack.Screen name="Dashboard" component={SellerTab} />
+      <Stack.Screen name="AdminDashboard" component={AdminTab} />
       <Stack.Screen name="Signup" component={Signup} />
       <Stack.Screen name="Signup1" component={Signup1} />
       <Stack.Screen name="SellerSignup" component={SellerSignup} />
-      <Stack.Screen name="SellerSignup2" component={SellerSignup2} /> 
+      <Stack.Screen name="SellerSignup2" component={SellerSignup2} />
       <Stack.Screen name="OrderApproval" component={OrdersApproval} />
       <Stack.Screen name="Orders" component={Orders} />
       <Stack.Screen name="OrderDetailsConfirmation" component={OrderDetailsConfirmation} />
       <Stack.Screen name="ProductDisplay" component={ProductDisplay} />
+      <Stack.Screen name="FillOrderForm" component={FillOrderForm}/>
       <Stack.Screen name="AddProduct" component={AddProduct} />
       <Stack.Screen name="CompleteOrder" component={CompleteOrder} />
       <Stack.Screen name="Bill" component={Bill} />
-      <Stack.Screen name ="AdminDashboard" component={AdminDashboard}/>
-      <Stack.Screen name ="ComplainsAdmin" component={ComplainsAdmin}/>
-      <Stack.Screen name ="DeleteUserAdmin" component={DeleteUserAdmin}/>
+      <Stack.Screen name="ComplainsAdmin" component={ComplainsAdmin} />
+      <Stack.Screen name="DeleteUserAdmin" component={DeleteUserAdmin} />
+      <Stack.Screen name="CompleteOrder" component={CompleteOrder} />
 
     </Stack.Navigator>
 
   );
-} 
+}
 
 
 // function SellerStack() {
@@ -69,9 +73,12 @@ function UserStack() {
 
 const App = () => {
   return (
-    <NavigationContainer > 
-      <AdminDashboard/>
-      {/* <UserStack /> */}
+    <NavigationContainer >
+      {/* <AdminDashboard/> */}
+      {/* <ComplainsAdmin/> */}
+      {/* <OrderDetailsConfirmation /> */}
+      {/* <DeleteUserAdmin/> */}
+      <UserStack />
       {/* <OrdersApproval/> */}
       {/* <ProductDisplay/> */}
       {/* <OrderDetailsConfirmation/> */}

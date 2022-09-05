@@ -6,11 +6,16 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import Navigation from '../../components/Navigation';
 import {SellerTab} from '../../components/Navigation';
+import {AdminTab} from '../../components/Navigation';
 import SellerSignup from './Signup_Seller';
 
 
 const CallDashboardScreen = () => {
   navigation.navigate('Dashboard')
+}
+
+const CallAdminDashboard = () => {
+  navigation.navigate('AdminDashboard')
 }
 
 const CallSignUpScreen = () => { navigation.navigate('SellerSignup') }

@@ -143,7 +143,8 @@ router.post('/uncomfirmedorders', async (req, res) => {
             const city = confirmed.city
             const phone = confirmed.phone
             const quantity = confirmed.quantity
-            const order = new orders({ sellerid, userid, productid, name, price, description, image, address, city, phone, quantity })
+            const total = confirmed.total
+            const order = new orders({ sellerid, userid, productid, name, price, description, image, address, city, phone, quantity, total })
             await order.save();
             await uncomfirmedorders.findByIdAndDelete(id)
             res.send(order)
@@ -167,7 +168,7 @@ router.post('/uncomfirmedorders', async (req, res) => {
     }),
 
     //for fetching unconfiremd order by seller id
-    router.get('/fetchunconfirmedorders/:id', async (req, res) => {
+    router.get('/fetchunconfirmedorderslist/:id', async (req, res) => {
         console.log(req.params.id)
         await uncomfirmedorders.find({ sellerid: req.params.id })
             .then(data => {
@@ -179,6 +180,20 @@ router.post('/uncomfirmedorders', async (req, res) => {
             })
 
     })
+
+router.get('/fetchunconfirmedorders/:id', async (req, res) => {
+    console.log(req.params.id)
+    await uncomfirmedorders.findById(req.params.id)
+        .then(data => {
+            res.send(data)
+        })
+
+        .catch(err => {
+            res.send(err)
+        })
+
+})
+
 
 //count unconmirmed orders
 router.get('/countuncomfirmedorders/:id', async (req, res) => {
@@ -192,6 +207,23 @@ router.get('/countuncomfirmedorders/:id', async (req, res) => {
         console.log("Could not delete order");
     }
 }),
+
+
+//for fetching orders by user id
+router.get('/fetchordersbyuserid/:id', async (req, res) => {
+    console.log(req.params.id)
+    await orders.find({ userid: req.params.id })
+        .then(data => {
+            res.send(data)
+        })
+        .catch(err => {
+            res.send(err)
+        })
+}),
+        
+
+
+
 
 
     //Submit Complains 

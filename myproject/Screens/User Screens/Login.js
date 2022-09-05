@@ -8,6 +8,7 @@ import { useState } from 'react';
 // import HomeUser from './HomeUser';
 import { UserTab } from '../../components/Navigation';
 import { SellerTab } from '../../components/Navigation';
+import { AdminTab } from '../../components/Navigation';
 import Signup from './Signup';
 import Navigation from '../../components/Navigation';
 import SellerSignup from '../Seller Screens/Signup_Seller';
@@ -20,6 +21,12 @@ const CallSellerDashboard = (userId) => {
   console.log("I am CallSellerScreen",userId);
   navigation.navigate('Dashboard', { userId: userId })
 }
+
+const CallAdminDashboard = (userId) => {
+  console.log("I am CallAdminDashboard at Login",userId);
+  navigation.navigate('AdminDashboard', { userId: userId })
+}
+
 
 const CallSignUpScreen = () => { navigation.navigate('Signup') }
 const CallSellerSignup = () => { navigation.navigate('SellerSignup') }
@@ -57,6 +64,9 @@ const Login = () => {
         }
         else if (role.toLowerCase() === "seller") {
           CallSellerDashboard(userId)
+        }
+        else if (role.toLowerCase() === "admin") {
+          CallAdminDashboard(userId)
         }
         else {
           console.log("Invalid credentials")

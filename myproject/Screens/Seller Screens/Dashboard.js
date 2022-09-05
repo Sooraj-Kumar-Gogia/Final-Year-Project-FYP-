@@ -6,8 +6,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 import OrdersApproval from './OrderApproval';
 import { useNavigation } from '@react-navigation/native';
 
-const CallOrderApproval = () => { navigation.navigate('OrderApproval'); }
-const CallOrdersScreen = () => { navigation.navigate('Orders'); }
+const CallOrderApproval = (sellerid) => { navigation.navigate('OrderApproval', {userId: sellerid}); }
+const CallOrdersScreen = (sellerid) => { navigation.navigate('Orders', {userId: sellerid}); }
 
 const SellerDashboard = ({ route }) => {
     navigation = useNavigation();
@@ -20,14 +20,14 @@ const SellerDashboard = ({ route }) => {
             <View style={{ paddingTop: 20, flex: 2, flexDirection: 'column', }}>
                 <Text style={styles.NameHeading}>Hi, Have a busy day full of orders and earn! </Text>
                 <ScrollView>
-                    <Card style={styles.SellerDashboardCards} onPress={CallOrderApproval}>
+                    <Card style={styles.SellerDashboardCards} onPress={CallOrderApproval(sellerid)}>
                         <Card.Content>
                             <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 18, alignSelf: 'center', fontWeight: 'bold', }}>UNCOMFIRMED ORDERS</Text>
                             <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 40, fontWeight: 'bold', }}>{'\n'}2</Text>
                         </Card.Content>
                     </Card>
 
-                    <Card style={styles.SellerDashboardCards} onPress={CallOrdersScreen}>
+                    <Card style={styles.SellerDashboardCards} onPress={CallOrdersScreen(sellerid)}>
                         <Card.Content>
                             <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 18, fontWeight: 'bold', }}>ACTIVE ORDERS</Text>
                             <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 40, fontWeight: 'bold', }}>{'\n'}2</Text>

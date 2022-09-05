@@ -5,16 +5,16 @@ import { Button } from 'react-native-paper';
 import styles from '../../style/ExternalStyle';
 
 
-const ComplainsAdmin = ({route}) => {
+const ComplainsAdmin = () => {
 
-    const sellerid = route.params.userId;
+    // const sellerid = route.params.userId; {route}
     const [name, setproductname] = useState('')
-    const [price, setprice] = useState('')
-    const [description, setdescription] = useState('')
-    const [imageurl, setimageurl] = useState('')
-    const image = "hello.jpg";
+    // const [price, setprice] = useState('')
+    // const [description, setdescription] = useState('')
+    // const [imageurl, setimageurl] = useState('')
+    // const image = "hello.jpg";
 
-    console.log("sellerid at add product", sellerid);
+    // console.log("sellerid at add product", sellerid);
 
 
     // const sendProduct = () => {
@@ -45,17 +45,22 @@ const ComplainsAdmin = ({route}) => {
 
     return (
         <View>
+            <Text style={styles.NameHeading}>Complains</Text>
             <ScrollView>
-                <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/addProduct.png')} style={{ width: 150, height: 200, alignSelf: 'center', paddingTop: 70 }} />
-                <Text style={styles.NameHeading}>Product Info</Text>
-                <TextInput placeholder='Product Title' value={name} onChangeText={(text) => setproductname(text)} style={styles.TextBox}></TextInput>
-                <TextInput placeholder='Description' multiline style={styles.ProductDescription} value={description} onChangeText={(text) => setdescription(text)}></TextInput>
-                {/* <TextInput placeholder='Category' style = {styles.TextBox}></TextInput> */}
-                <TextInput placeholder='Price' keyboardType='numeric' style={styles.TextBox} value={price} onChangeText={(text) => setprice(text)}></TextInput>
-                <Button style={styles.rejectbutton}>Select Image</Button>
-                <Button style={styles.button} mode="contained" onPress={sendProduct}>Publish Product</Button>
+                <View style={{ borderRadius: 10, backgroundColor: '#DEDEDE', width: 500, height: 300, borderColor: 'grey', borderBottomWidth: 2, }}>
+                    <Text style={styles.Description}>User ID: 123456789 </Text>
+                    <Text style={styles.Description}>Seller ID: 123456 </Text>
+                    <Text style={styles.Description}>Description: Seller did not provide quality </Text>
+                    <Text style={styles.Description}>Complained By: user </Text>
+                </View>
+                <View style={{ borderRadius: 10, backgroundColor: '#DEDEDE', width: 500, height: 300, borderColor: 'grey' }}>
+                    <Text style={styles.Description}>User ID: 123456 </Text>
+                    <Text style={styles.Description}>Seller ID: 123456789 </Text>
+                    <Text style={styles.Description}>Description: Meal was not fresh </Text>
+                    <Text style={styles.Description}>Complained By: user </Text>
+                </View>
             </ScrollView>
-            
+
 
         </View>
 

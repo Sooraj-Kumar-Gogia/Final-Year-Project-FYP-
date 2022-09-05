@@ -17,6 +17,9 @@ import AddProduct from '../Screens/Seller Screens/AddProduct';
 import OrdersApproval from '../Screens/Seller Screens/OrderApproval';
 import OrderDetailsConfirmation from '../Screens/Seller Screens/OrderDetailsConfirmation';
 import ProductDisplay from '../Screens/User Screens/ProductDisplay';
+import AdminDashboard from '../Screens/Admin Screens/Admin_Dashboard';
+import ComplainsAdmin from '../Screens/Admin Screens/ComplainsAdmin';
+import DeleteUserAdmin from '../Screens/Admin Screens/DeleteUserAdmin';
 
 
 const Tab = createBottomTabNavigator();
@@ -43,7 +46,7 @@ function SellerTab({ route }) {
     // <NavigationContainer>
     <Tab.Navigator initialRouteName='Dashboard' initialParams={{ userId: userId }}>
       <Tab.Screen name="Dashboard" component={SellerDashboard} initialParams={{ userId: userId }} />
-      {/* <Tab.Screen name='Notification' component={SellerNotification} /> */}
+      <Tab.Screen name="OrdersApproval" component={OrdersApproval} initialParams={{ userId: userId }} />
       <Tab.Screen name="AddProduct" component={AddProduct} initialParams={{ userId: userId }} />
       <Tab.Screen name="Orders" component={Orders} initialParams={{ userId: userId }} />
       <Tab.Screen name='Profile' component={SellerProfile} initialParams={{ userId: userId }} />
@@ -53,7 +56,22 @@ function SellerTab({ route }) {
 
 }
 
+function AdminTab({ route }) {
+  const userId = route.params.userId;
+  console.log(userId);
+  return (
+    // <NavigationContainer>
+    <Tab.Navigator initialRouteName='AdminDashboard' initialParams={{ userId: userId }}>
+      <Tab.Screen name="AdminDashboard" component={AdminDashboard} initialParams={{ userId: userId }} />
+      <Tab.Screen name="DeleteUserAdmin" component={DeleteUserAdmin} initialParams={{ userId: userId }} />
+      <Tab.Screen name="ComplainsAdmin" component={ComplainsAdmin} initialParams={{ userId: userId }} />
+    </Tab.Navigator>
+    //  </NavigationContainer>
+  )
+
+}
 
 
 
-export { UserTab, SellerTab };
+
+export { UserTab, SellerTab, AdminTab };
