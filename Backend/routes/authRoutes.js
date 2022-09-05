@@ -222,6 +222,17 @@ router.get('/fetchordersbyuserid/:id', async (req, res) => {
 }),
         
 
+//for fetching orders by orderid to complete orders
+router.get('/fetchordersbyorderidtocompleteorder/:id', async (req, res) => {
+    console.log(req.params.id)
+    await orders.findById(req.params.id)
+        .then(data => {
+            res.send(data)
+        })
+        .catch(err => {
+            res.send(err)
+        })
+}),
 
 
 

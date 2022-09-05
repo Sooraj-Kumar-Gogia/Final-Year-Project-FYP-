@@ -23,6 +23,7 @@ import AdminDashboard from './Screens/Admin Screens/Admin_Dashboard';
 import ComplainsAdmin from './Screens/Admin Screens/ComplainsAdmin';
 import DeleteUserAdmin from './Screens/Admin Screens/DeleteUserAdmin';
 import FillOrderForm from './Screens/User Screens/FillOrderForm';
+import SubmitComplain from './Screens/User Screens/SubmitComplain';
 
 
 const Stack = createStackNavigator();
@@ -48,7 +49,7 @@ function UserStack() {
       <Stack.Screen name="Bill" component={Bill} />
       <Stack.Screen name="ComplainsAdmin" component={ComplainsAdmin} />
       <Stack.Screen name="DeleteUserAdmin" component={DeleteUserAdmin} />
-      <Stack.Screen name="CompleteOrder" component={CompleteOrder} />
+      <Stack.Screen name="SubmitComplain" component={SubmitComplain} />
 
     </Stack.Navigator>
 

@@ -8,15 +8,16 @@ import { useState } from 'react';
 import styles from '../../style/ExternalStyle';
 import CompleteOrder from './CompleteOrder';
 
-const CallCompleteOrder = () => {
-  navigation.navigate('CompleteOrder');
-}
+
 
 
 const OrdersUser = ({ route }) => {
   navigation = useNavigation();
   const userId = route.params.userId;
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // const CallCompleteOrder = () => {navigation.navigate('CompleteOrder',{orderid: data._id});}
 
   React.useEffect(() => {
     fetch(`http://10.0.2.2:3000/fetchordersbyuserid/${userId}`)
@@ -41,9 +42,9 @@ const OrdersUser = ({ route }) => {
 
         {data.map((item, ndx) => (
           <View>
-            <Card style={styles.orderlist} onPress={CallCompleteOrder} key={ndx}>
+            <Card style={styles.orderlist} onPress={navigation.navigate('CompleteOrder',{orderid: item._id})} key={ndx}>
               <Card.Content style={{ flex: 1, flexDirection: 'row', }}>
-                <View style={{ width: 100, height: 150, flex: 2, }}>
+                <View style={{ width: 100, height: 150, flex: 2, }} onPress={navigation.navigate('CompleteOrder',{orderid: item._id})}>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 20, color: '#000000' }}>{item.name}</Text>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#dedede' }}>{item.price}</Text>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#dedede' }}>x{item.quantity}</Text>

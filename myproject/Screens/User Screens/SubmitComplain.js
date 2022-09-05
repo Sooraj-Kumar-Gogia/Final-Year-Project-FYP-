@@ -5,19 +5,15 @@ import { Button } from 'react-native-paper';
 import styles from '../../style/ExternalStyle';
 
 
-const SubmitComplain = ({route}) => {
+const SubmitComplain = ({ route }) => {
 
-    const sellerid = route.params.userId;
-    const [name, setproductname] = useState('')
-    const [price, setprice] = useState('')
-    const [description, setdescription] = useState('')
-    const [imageurl, setimageurl] = useState('')
-    const image = "hello.jpg";
-
-    console.log("sellerid at add product", sellerid);
+    const sellerid = route.params.sellerid;
+    const userid = route.params.userid;
+    const complainby = route.params.complainby;
+    const [complain, setComplain] = useState('');
 
 
-    const sendProduct = () => {
+    const SubmitComplain = () => {
         console.log("hello add product")
         fetch("http://10.0.2.2:3000/complains", {
             method: "POST",
@@ -26,16 +22,15 @@ const SubmitComplain = ({route}) => {
             },
             body: JSON.stringify({
                 sellerid,
-                name,
-                price,
-                description,
-                image
+                userid,
+                complainby,
+                complain
             })
         })
 
             .then(res => res.json())
             .then(data => {
-                alert("Product Published")
+                alert("Complain Submitted");
                 console.log(data)
 
             }).catch(err => {
@@ -48,10 +43,10 @@ const SubmitComplain = ({route}) => {
             <ScrollView>
                 <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/complain.png')} style={{ width: 150, height: 200, alignSelf: 'center', paddingTop: 70 }} />
                 <Text style={styles.NameHeading}>What Happened?</Text>
-                <TextInput placeholder='Explain here in details' multiline style={styles.ProductDescription} value={description} onChangeText={(text) => setdescription(text)}></TextInput>
-                <Button style={styles.button} mode="contained" onPress={sendProduct}>Submit Complain</Button>
+                <TextInput placeholder='Explain here in details' multiline style={styles.ProductDescription} value={complain} onChangeText={(text) => setComplain(text)}></TextInput>
+                <Button style={styles.button} mode="contained" onPress={SubmitComplain}>Submit Complain</Button>
             </ScrollView>
-            
+
 
         </View>
 
