@@ -48,7 +48,7 @@ const HomeUser = ({route}) => {
       <ScrollView>
         <Text style={styles.Heading}>Popular Dishes</Text>
         <Card style={styles.banner}>
-          <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/Banner/banner.jpg')} style={styles.ProductImage} />
+          <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/Banner/banner.jpg')} style={styles.ProductImage} resizeMode='contain' />
         </Card>
         {data.map((item, ndx) => (
           <View>

@@ -6,8 +6,8 @@ import { ScrollView } from 'react-native-gesture-handler';
 import OrdersApproval from './OrderApproval';
 import { useNavigation } from '@react-navigation/native';
 
-const CallOrderApproval = (sellerid) => { navigation.navigate('OrderApproval', {userId: sellerid}); }
-const CallOrdersScreen = (sellerid) => { navigation.navigate('Orders', {userId: sellerid}); }
+const CallOrderApproval = (sellerid) => { navigation.navigate('OrderApproval', { userId: sellerid }); }
+const CallOrdersScreen = (sellerid) => { navigation.navigate('Orders', { userId: sellerid }); }
 
 const SellerDashboard = ({ route }) => {
     navigation = useNavigation();
@@ -16,24 +16,41 @@ const SellerDashboard = ({ route }) => {
     console.log(sellerid);
 
     return (
-            // <View></View>
-            <View style={{ paddingTop: 20, flex: 2, flexDirection: 'column', }}>
-                <Text style={styles.NameHeading}>Hi, Have a busy day full of orders and earn! </Text>
+        // <View></View>
+        <View style={{ paddingTop: 20, flex: 2,  }}>
+
+            <View style={{ flex: 2, width: '100%', flexDirection: 'row',}}>
                 <ScrollView>
-                    <Card style={styles.SellerDashboardCards} onPress={CallOrderApproval(sellerid)}>
+                    <Card style={styles.banner}>
+                        <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/Banner/banner.jpg')} style={styles.ProductImage} resizeMode='contain' />
+                    </Card>
+                    <Card style={styles.banner}>
+                        <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/Banner/banner.jpg')} style={styles.ProductImage} resizeMode='contain' />
+                    </Card>
+
+                </ScrollView>
+            </View>
+
+
+            <Text style={styles.NameHeading}>Hi, Have a busy day full of orders and earn! </Text>
+
+            <ScrollView>
+                <View style={{ flex: 2, width: '100%', flexDirection: 'row', }}>
+                    <Card style={styles.SellerDashboardCards} onPress={() => CallOrderApproval(sellerid)}>
                         <Card.Content>
                             <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 18, alignSelf: 'center', fontWeight: 'bold', }}>UNCOMFIRMED ORDERS</Text>
                             <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 40, fontWeight: 'bold', }}>{'\n'}2</Text>
                         </Card.Content>
                     </Card>
 
-                    <Card style={styles.SellerDashboardCards} onPress={CallOrdersScreen(sellerid)}>
+                    <Card style={styles.SellerDashboardCards2} onPress={() => CallOrdersScreen(sellerid)}>
                         <Card.Content>
                             <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 18, fontWeight: 'bold', }}>ACTIVE ORDERS</Text>
                             <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 40, fontWeight: 'bold', }}>{'\n'}2</Text>
                         </Card.Content>
                     </Card>
-                </ScrollView>
+                </View>
+            </ScrollView>
 
         </View>
     )

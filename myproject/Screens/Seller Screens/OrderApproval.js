@@ -18,7 +18,7 @@ const OrdersApproval = ({ route }) => {
   // Stack = createStackNavigator();
   navigation = useNavigation();
   sellerid = route.params.userId;
-  console.log(sellerid);  
+  console.log("At Order Approval, seller: ", sellerid);
   const [data, setData] = useState([]);
 
 
@@ -34,17 +34,17 @@ const OrdersApproval = ({ route }) => {
   }, [])
   console.log(data);
 
-  const CallOrderDetailsConfirmationScreen = () => {navigation.navigate('OrderDetailsConfirmation', {item_id: data._id});}
+  // const CallOrderDetailsConfirmationScreen = () => {navigation.navigate('OrderDetailsConfirmation', {item_id: data._id});}
 
   return (
 
     <View>
       <ScrollView>
         {data.map((item, ndx) => (
-          <View>
-            <Card style={styles.orderlist} onPress={CallOrderDetailsConfirmationScreen} key={ndx}>
+          <View key={ndx}>
+            <Card style={styles.orderlist} onPress={()=> navigation.navigate("OrderDetailsConfirmation", { item_id: item._id }) }>
               <Card.Content style={{ flex: 1, flexDirection: 'row', }}>
-                <View style={{ width: 100, height: 150, flex: 2, }} onPress={CallOrderDetailsConfirmationScreen}>
+                <View style={{ width: 100, height: 150, flex: 2, }} onPress={navigation.navigate('OrderDetailsConfirmation', { item_id: data._id })}>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#000000', }}>{item.name}</Text>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 12, color: '#000000', }}>{item.price}</Text>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 10, color: '#000000', }}>x {item.quantity}</Text>
@@ -57,7 +57,6 @@ const OrdersApproval = ({ route }) => {
             </Card>
           </View>
         ))}
-
       </ScrollView>
     </View>
 

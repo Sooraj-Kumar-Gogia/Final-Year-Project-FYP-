@@ -30,7 +30,9 @@ const OrdersUser = ({ route }) => {
       setLoading(false)
       console.log(data)
     }
-    else { console.log("No orders to show") }
+    else { 
+      alert("No Orders Found");
+      console.log("No orders to show") }
 
   }, [])
 
@@ -41,12 +43,12 @@ const OrdersUser = ({ route }) => {
       <ScrollView>
 
         {data.map((item, ndx) => (
-          <View>
-            <Card style={styles.orderlist} onPress={navigation.navigate('CompleteOrder',{orderid: item._id})} key={ndx}>
+          <View key={ndx}>
+            <Card style={styles.orderlist} onPress={()=>navigation.navigate('CompleteOrder',{orderid: item._id})}>
               <Card.Content style={{ flex: 1, flexDirection: 'row', }}>
-                <View style={{ width: 100, height: 150, flex: 2, }} onPress={navigation.navigate('CompleteOrder',{orderid: item._id})}>
+                <View style={{ width: 100, height: 150, flex: 2, }} onPress={()=>navigation.navigate('CompleteOrder', {orderid: item._id})}>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 20, color: '#000000' }}>{item.name}</Text>
-                  <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#dedede' }}>{item.price}</Text>
+                  <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#000000' }}>{item.price}</Text>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#dedede' }}>x{item.quantity}</Text>
                   <View><ApprovalTag /></View>
                 </View>
@@ -55,40 +57,8 @@ const OrdersUser = ({ route }) => {
                 </View>
               </Card.Content>
             </Card>
-
-
           </View>
         ))}
-
-
-
-
-        {/* <Card style={styles.orderlist}>
-          <Card.Content style={{ flex: 1, flexDirection: 'row', }}>
-            <View style={{ width: 100, height: 150, flex: 2, }}>
-              <Text style = {{fontFamily: 'roboto', fontSize: 20, color: '#000000'}}>Biryaani</Text>
-              <Text style = {{fontFamily: 'roboto', fontSize: 14, color: '#dedede'}}>You ordered it from username, on 12:30 am</Text>
-              <View><NotApprovedTag/></View>
-            </View>
-            <View style={{ width: 100, height: 150, flex: 1, }}>
-              <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
-            </View>
-          </Card.Content>
-        </Card>
-
-        <Card style={styles.orderlist}>
-          <Card.Content style={{ flex: 1, flexDirection: 'row', }}>
-            <View style={{ width: 100, height: 150, flex: 2, }}>
-              <Text style = {{fontFamily: 'roboto', fontSize: 20, color: '#000000'}}>Biryaani</Text>
-              <Text style = {{fontFamily: 'roboto', fontSize: 14, color: '#dedede'}}>You ordered it from username, on 12:30 am</Text>
-              <NotApprovedTag/>
-            </View>
-            <View style={{ width: 100, height: 150, flex: 1, }}>
-              <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImageOrderPage} />
-            </View>
-          </Card.Content>
-        </Card> */}
-
 
       </ScrollView>
     </View>

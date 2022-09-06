@@ -6,52 +6,11 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import SellerDashboard from './Dashboard';
 
-const CallConfirmOrder = (id) => {
-    unconfirmedorderid = id;
-    fetch(`http://10.0.2.2:3000/confirmanddeleteorder`, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            id: unconfirmedorderid
-        })
-    })
-
-        .then(res => res.json())
-        .then(data => {
-            alert("Order Confirmed")
-            console.log(data)
-        }).catch(err => { console.log(err) });
-
-}
-
-
-const CallRejectOrder = (id) => {
-    
-    React.useEffect(() => {
-        try {
-            console.log(id)
-            fetch(`http://10.0.2.2:3000/deleteuncomfirmedorder/${id}`)
-                .then((res) => res.json())
-                .then(data => {
-                    console.log(typeof (data))
-                    console.log(data);
-                    alert("Order Rejected")
-                })
-        }
-        catch (error) {
-            console.log("couldn't reject order!")
-            console.log(error);
-        }
-    }, [])
-
-}
-
 
 const OrderDetailsConfirmation = ({ route }) => {
             navigation = useNavigation();
             orderid = route.params.item_id;
+            console.log("Confirm Order with id: ",orderid)
             const [data, setData] = useState([]);
 
             React.useEffect(() => {
@@ -75,6 +34,55 @@ const OrderDetailsConfirmation = ({ route }) => {
 
             const id = data._id
 
+            const CallConfirmOrder = (id) => {
+                const unconfirmedid = id
+                
+                fetch(`http://10.0.2.2:3000/confirmanddeleteorder`, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body:{
+                        id: unconfirmedid,
+                    }
+                })
+            
+                    .then(res => res.json())
+                    .then(data => {
+                        alert("Order Confirmed")
+                        console.log(data)
+                    }).catch(err => { console.log(err) });
+            
+            }
+
+
+
+            const CallRejectOrder = () => {
+    
+                // React.useEffect(() => {
+                    try {
+                        console.log(id)
+                        fetch(`http://10.0.2.2:3000/deleteuncomfirmedorder/${id}`, {
+                            method: "POST",
+                        })
+                            .then((res) => res.json())
+                            .then(data => {
+                                console.log(typeof (data))
+                                console.log(data);
+                                alert("Order Rejected")
+                                navigation.navigate('OrderApproval')
+                            })
+                    }
+                    catch (error) {
+                        console.log("couldn't reject order!")
+                        console.log(error);
+                    }
+                // }, [])
+            
+            }
+
+
+
             return (
                 <View style={{ margin: 20, }}>
                     <ScrollView>
@@ -92,8 +100,8 @@ const OrderDetailsConfirmation = ({ route }) => {
                         <Text style={{ fontSize: 14, color: 'black' }}>Address:{data.address}</Text>
                         <Text style={{ fontSize: 14, color: 'black' }}>User ID:{data.userid}</Text>
                         <Text style={{ fontSize: 14, color: 'black' }}>Seller ID: {data.sellerid}</Text>
-                        <Button style={styles.button} onPress={CallConfirmOrder(id)}>Confirm Order</Button>
-                        <Button style={styles.rejectbutton} onPress={CallRejectOrder(id)} >Reject Order</Button>
+                        <Button style={styles.button} onPress={CallConfirmOrder}>Confirm Order</Button>
+                        <Button style={styles.rejectbutton} onPress={CallRejectOrder} >Reject Order</Button>
                     </ScrollView>
 
                 </View>

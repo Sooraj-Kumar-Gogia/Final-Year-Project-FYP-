@@ -130,8 +130,9 @@ router.post('/uncomfirmedorders', async (req, res) => {
     router.post('/confirmanddeleteorder', async (req, res) => {
         const { id } = req.body;
         console.log(id)
+        console.log(id)
         try {
-            const confirmed = await uncomfirmedorders.findById(id);
+            const confirmed = await uncomfirmedorders.findById(mongoose.Types.ObjectId(id));
             const sellerid = confirmed.sellerid
             const userid = confirmed.userid
             const productid = confirmed.productid
@@ -158,8 +159,9 @@ router.post('/uncomfirmedorders', async (req, res) => {
     //Delete uncomfirmed orders
     router.post('/deleteuncomfirmedorder/:id', async (req, res) => {
         try {
-            const orderid = req.params.id;
-            await uncomfirmedorders.findByIdAndDelete(orderid);
+            // const id = req.params.id;
+            console.log(req.params.id)
+            await uncomfirmedorders.findByIdAndDelete(mongoose.Types.ObjectId(req.params.id));
             res.send("Order Deleted")
         } catch (error) {
             return res.status(442).send(error);
@@ -326,6 +328,16 @@ router.get('/getproducts', async (req, res) => {
 
 // })
 
+//Fetch user by id
+router.get('/fetchuser/:id', async (req, res) => {
+    try {
+        const user = await users.findById(mongoose.Types.ObjectId(req.params.id)) //find();
+        res.send(user)
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not get product");
+    }
+}),
 
 
 

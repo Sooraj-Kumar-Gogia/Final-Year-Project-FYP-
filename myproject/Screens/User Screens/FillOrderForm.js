@@ -69,10 +69,11 @@ export default FillOrderForm = ({ route }) => {
             <View>
                 <ScrollView>
                     <Text style={styles.Heading}> Order Details </Text>
-                    <Text style={styles.Description}>Total Price: {total} </Text>
                     <TextInput placeholder="City" value={city} onChangeText={(text) => setCity(text)} style={styles.TextBox}></TextInput>
                     <TextInput placeholder='Address' value={address} onChangeText={(text) => setAddress(text)} style={styles.TextBox}></TextInput>
                     <TextInput placeholder='Phone' keyboardType='numeric' value={phone} onChangeText={(text) => setPhone(text)} style={styles.TextBox}></TextInput>
+                    <Text style={styles.NameHeading}>Total Price: {total} </Text>
+
                 </ScrollView>
 
                 <View style={{ backgroundColor: 'white' }}>

@@ -186,6 +186,18 @@ const styles = StyleSheet.create(
       margin: 10
     },
 
+    SellerDashboardCards2:
+    {
+      borderRadius: 20,
+      width: '40%',
+      height: 180,
+      // alignSelf: 'left',
+      backgroundColor: '#FA8128',
+      color: 'white',
+      alignContent: 'center',
+      margin: 10
+    },
+
     RightSideCard: {
       borderRadius: 30,
       width: '50%',
