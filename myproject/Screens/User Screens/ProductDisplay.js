@@ -19,6 +19,7 @@ export default ProductDisplay = ({ route }) => {
 
   const productId = route.params.item_id
   const userId = route.params.userId;
+  // const image = route.params.image;
   
   const [counter, setCounter] = useState(1)
   // const id = mongoose.Types.ObjectId(req.params.viewexp_id);
@@ -56,8 +57,12 @@ export default ProductDisplay = ({ route }) => {
     <View>
       <View>
         
-        <Image source={require("C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg")} style={styles.ProductDisplayImage} />
+        {/* <Image source={require("C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg")} style={styles.ProductDisplayImage} /> */}
+        <Image source={{ uri: data.image }} style={styles.ProductDisplayImage} resizeMode='contain' />
+
+        {/* <View style={{ flex: 2, width: '100%', flexDirection: 'row', }}>   */}
         <Text style={styles.NameHeading}>{data.name}</Text>
+        {/* </View> */}
         <Text style={styles.Price}>{data.price}</Text>
         <Text style={styles.Description}>{data.description}</Text>
         <CounterInput style={{width: 150, height: 70, marginLeft: 20,}} horizontal={true}

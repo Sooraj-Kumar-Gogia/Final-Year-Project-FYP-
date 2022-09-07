@@ -22,7 +22,7 @@ const SellerDashboard = ({ route }) => {
             <View style={{ flex: 2, width: '100%', flexDirection: 'row',}}>
                 <ScrollView>
                     <Card style={styles.banner}>
-                        <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/Banner/banner.jpg')} style={styles.ProductImage} resizeMode='contain' />
+                        <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/Banner/banner2.png')} style={styles.ProductImage} resizeMode='contain' />
                     </Card>
                     <Card style={styles.banner}>
                         <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/Banner/banner.jpg')} style={styles.ProductImage} resizeMode='contain' />
@@ -32,7 +32,7 @@ const SellerDashboard = ({ route }) => {
             </View>
 
 
-            <Text style={styles.NameHeading}>Hi, Have a busy day full of orders and earn! </Text>
+            <Text style={styles.NameHeading}>Orders </Text>
 
             <ScrollView>
                 <View style={{ flex: 2, width: '100%', flexDirection: 'row', }}>

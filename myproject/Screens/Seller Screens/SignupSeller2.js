@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { View, Text, ScrollView, Image, TextInput } from 'react-native';
+import { View, Text, ScrollView, Image, TextInput, Modal, Picker } from 'react-native';
 import { Button, Card } from "react-native-paper";
 // import DatePicker from 'react-native-date-picker';
 import styles from "../../style/ExternalStyle";
@@ -32,6 +32,13 @@ const SellerSignup2 = ({ route }) => {
         console.log(name, email, role, password)
         if (!email.trim()) { alert("Plaese Enter an Email") }
         if (!password.trim()) { alert("Please Enter a Password") }
+        if (!phone.trim()) { alert("Please Enter a Phone Number") }
+        if (!name.trim()) { alert("Please Enter a Name") }
+        if (!role.trim()) { alert("Please Enter a Role") }
+        if (!BusinessName.trim()) { alert("Please Enter a Business Name") }
+        if (!StoreDescription.trim()) { alert("Please Enter a Store Description") }
+        if (!CNIC.trim()) { alert("Please Enter a CNIC") }
+        if (!CNICurl.trim()) { alert("Please Upload CNIC Image") }
 
         else {
             fetch("http://10.0.2.2:3000/signup", {
@@ -68,51 +75,50 @@ const SellerSignup2 = ({ route }) => {
 
 
 
-    let options={
+    let options = {
         title: 'Select Image',
-      type: 'library',
-      options: {
-        maxHeight: 200,
-        maxWidth: 200,
-        selectionLimit: 1,
-        mediaType: 'photo',
-        includeBase64: false,
-      },
-      }
-      
-      const openCamera = async() => {
-      const images = await launchCamera(options);
-      if (!images.didCancel){
-        let newFile = {uri: images.assets[0].uri, type: images.assets[0].type, name : images.assets[0].fileName}
-         handleUpload(newFile)
-      }
-      }
-      
-      const openGalary = async() => {
-      const images = await launchImageLibrary(options);
-      if (!images.didCancel){
-       let newFile = {uri: images.assets[0].uri, type: images.assets[0].type, name : images.assets[0].fileName}
-        handleUpload(newFile)
-      }
-      }
-      
-      const handleUpload = (image) => {
-      const data = new FormData()
-      data.append('file', image)
-      data.append('upload_preset', 'usersYHEW')
-      data.append('cloud_name', 'react-native-yhew')
-      
-      fetch("https://api.cloudinary.com/v1_1/react-native-yhew/image/upload", {
-        method:"post",
-        body:data
-      }).then(res => res.json()).
-      then(data => {
-        console.log(data)
-        setFrontCNIC(data.url)
-        setModal(false)
-      })
-      }
+        type: 'library',
+        options: {
+            maxHeight: 200,
+            maxWidth: 200,
+            selectionLimit: 1,
+            mediaType: 'photo',
+            includeBase64: false,
+        },
+    }
 
+    const openCamera = async () => {
+        const images = await launchCamera(options);
+        if (!images.didCancel) {
+            let newFile = { uri: images.assets[0].uri, type: images.assets[0].type, name: images.assets[0].fileName }
+            handleUpload(newFile)
+        }
+    }
+
+    const openGalary = async () => {
+        const images = await launchImageLibrary(options);
+        if (!images.didCancel) {
+            let newFile = { uri: images.assets[0].uri, type: images.assets[0].type, name: images.assets[0].fileName }
+            handleUpload(newFile)
+        }
+    }
+
+    const handleUpload = (image) => {
+        const data = new FormData()
+        data.append('file', image)
+        data.append('upload_preset', 'usersYHEW')
+        data.append('cloud_name', 'react-native-yhew')
+
+        fetch("https://api.cloudinary.com/v1_1/react-native-yhew/image/upload", {
+            method: "post",
+            body: data
+        }).then(res => res.json()).
+            then(data => {
+                console.log(data)
+                setFrontCNIC(data.url)
+                setModal(false)
+            })
+    }
 
     return (
 
@@ -123,7 +129,40 @@ const SellerSignup2 = ({ route }) => {
             <TextInput placeholder='CNIC' style={styles.TextBox} value={CNIC} onChangeText={(text) => setCNIC(text)} />
             <Button style={{ height: 40, width: 150, marginLeft: 10, marginBottom: 0, paddingLeft: 10 }} onPress={() => setModal(true)}>Upload CNIC</Button>
             <Button style={styles.button} mode="contained" onPress={SubmitForm}>Create Account</Button>
+
+
+            <Modal
+                animatedType="slide"
+                transparent={false}
+                visible={modal}
+                style={{ backgroundColor: "white", position: 'absolute', top: 2, width: "100%" }}>
+
+                <View style={{ alignContent: 'center', alignItems: 'center', flexDirection: "row", justifyContent: 'space-around', marginTop: 350 }}>
+                    <Button icon={frontCNIC == "" ? "camera" : "check"} style={{ backgroundColor: '#10047c' }} mode="contained" onPress={openCamera}>
+                        Camera
+                    </Button>
+
+                    <Button icon={frontCNIC == "" ? "image-area" : "check"} style={{ backgroundColor: '#10047c' }} mode="contained" onPress={openGalary}>
+                        Galary
+                    </Button>
+                </View>
+                <Button style={{ backgroundColor: 'red', marginTop: 20, margin: 40 }} mode="contained" onPress={() => setModal(false)}>
+                    cancel
+                </Button>
+
+            </Modal>
         </View>
+
+
+
+
+
+
+        
+
+
+
+
 
     )
 

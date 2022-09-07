@@ -22,6 +22,7 @@ const UserSchema = new mongoose.Schema({
 
     CNIC: {
         type: String,
+        unique: true,
     },
 
     BusinessName: {

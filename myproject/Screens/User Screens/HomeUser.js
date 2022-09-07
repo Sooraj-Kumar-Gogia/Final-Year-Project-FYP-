@@ -54,7 +54,8 @@ const HomeUser = ({route}) => {
           <View>
             <Card style={styles.productcatalog} onPress={()=>{navigation.navigate('ProductDisplay', { item_id: item._id, userId: user })}}>
               <View key={ndx}>
-                <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} />
+                {/* <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/dishes/dish1.jpg')} style={styles.ProductImage} /> */}
+                <Image source={{ uri: item.image }} style={styles.ProductImage} />
                 <Card.Title title={item.name} subtitle={item._id} />
                 <Card.Content>
                   <Text>{item.price}</Text>

@@ -50,7 +50,7 @@ const styles = StyleSheet.create(
 
     ProductDisplayImage: {
       width: '100%',
-      height: '50%',
+      height: '30%',
       alignContent: 'center',
       justifyContent: 'center',
 
