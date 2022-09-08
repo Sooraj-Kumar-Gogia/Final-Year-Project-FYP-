@@ -127,27 +127,54 @@ router.post('/uncomfirmedorders', async (req, res) => {
 
 
     //move and delete orders 
-    router.post('/confirmanddeleteorder', async (req, res) => {
-        const { id } = req.body;
-        console.log(id)
-        console.log(id)
+    // router.post('/confirmanddeleteorder', async (req, res) => {
+    //     const id  = req.body.id;
+    //     console.log(id)
+    //     console.log(id)
+    //     try {
+    //         console.log("In the try method of API: ", id);
+    //         const confirmed = await uncomfirmedorders.findById(mongoose.Types.ObjectId(id));
+    //         const sellerid = confirmed.sellerid
+    //         const userid = confirmed.userid
+    //         const productid = confirmed.productid
+    //         const name = confirmed.name
+    //         const price = confirmed.price
+    //         const description = confirmed.description
+    //         const image = confirmed.image
+    //         const address = confirmed.address
+    //         const city = confirmed.city
+    //         const phone = confirmed.phone
+    //         const quantity = confirmed.quantity
+    //         const total = confirmed.total
+    //         const order = new orders({ sellerid, userid, productid, name, price, description, image, address, city, phone, quantity, total })
+    //         await order.save();
+    //         await uncomfirmedorders.findByIdAndDelete(id)
+    //         res.send(confirmed)
+    //     } catch (error) {
+    //         return res.status(442).send(error);
+    //         console.log("Could not delete order");
+    //     }
+    // }),
+
+    // Fetch Uncomfirmed Orders w.r.t OrderID
+    router.get('/bringuncomfirmedorder/:id', async (req, res) => {
         try {
-            const confirmed = await uncomfirmedorders.findById(mongoose.Types.ObjectId(id));
-            const sellerid = confirmed.sellerid
-            const userid = confirmed.userid
-            const productid = confirmed.productid
-            const name = confirmed.name
-            const price = confirmed.price
-            const description = confirmed.description
-            const image = confirmed.image
-            const address = confirmed.address
-            const city = confirmed.city
-            const phone = confirmed.phone
-            const quantity = confirmed.quantity
-            const total = confirmed.total
-            const order = new orders({ sellerid, userid, productid, name, price, description, image, address, city, phone, quantity, total })
+            console.log("Fetching order from unconfirmed orders, ID: ", req.params.id)
+            const fetchedorder = await uncomfirmedorders.find(mongoose.Types.ObjectId(req.params.id));
+            res.send(fetchedorder)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not delete order");
+        }
+    }),
+
+    // Post Unconfirmed Order to Confirmed Order
+    router.post('/moveorderdata', async (req, res) => {
+        const { sellerid, userid, productid, name, price, address, city, phone, quantity } = req.body;
+        console.log("Move Order Backend, Seller: ", sellerid)
+        try {
+            const order = new orders({ sellerid, userid, productid, name, price, address, city, phone, quantity })
             await order.save();
-            await uncomfirmedorders.findByIdAndDelete(id)
             res.send(order)
         } catch (error) {
             return res.status(442).send(error);
@@ -155,19 +182,34 @@ router.post('/uncomfirmedorders', async (req, res) => {
         }
     }),
 
+    // Delete Unconfirmed Order
+    // router.delete('/deleteuncomfirmedorder/:id', async (req, res) => {
+    //     const id  = req.body.id;
+    //     console.log("Finally deleting the unconfirmed order, ID: ", id)
+    //     try {
+    //         await uncomfirmedorders.findByIdAndDelete(mongoose.Types.ObjectId(req.params.id))
+    //         res.send("Deleted")
+    //     } catch (error) {
+    //         return res.status(442).send(error);
+    //         console.log("Could not delete order");
+    //     }
+    // }),
 
-    //Delete uncomfirmed orders
-    router.post('/deleteuncomfirmedorder/:id', async (req, res) => {
-        try {
-            // const id = req.params.id;
-            console.log(req.params.id)
-            await uncomfirmedorders.findByIdAndDelete(mongoose.Types.ObjectId(req.params.id));
-            res.send("Order Deleted")
-        } catch (error) {
-            return res.status(442).send(error);
-            console.log("Could not delete order");
-        }
+
+
+
+    //deleting unconfirmed orders || Reject Orders API
+    router.delete('/deleteuncomfirmedorder/:id', async (req, res) => {
+        console.log("reject with order id ", req.params.id)
+        await uncomfirmedorders.findByIdAndDelete(mongoose.Types.ObjectId(req.params.id))
+            .then(data => {
+                res.send(data)
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }),
+
 
     //for fetching unconfiremd order by seller id
     router.get('/fetchunconfirmedorderslist/:id', async (req, res) => {
@@ -211,30 +253,30 @@ router.get('/countuncomfirmedorders/:id', async (req, res) => {
 }),
 
 
-//for fetching orders by user id
-router.get('/fetchordersbyuserid/:id', async (req, res) => {
-    console.log(req.params.id)
-    await orders.find({ userid: req.params.id })
-        .then(data => {
-            res.send(data)
-        })
-        .catch(err => {
-            res.send(err)
-        })
-}),
-        
+    //for fetching orders by user id
+    router.get('/fetchordersbyuserid/:id', async (req, res) => {
+        console.log(req.params.id)
+        await orders.find({ userid: req.params.id })
+            .then(data => {
+                res.send(data)
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }),
 
-//for fetching orders by orderid to complete orders
-router.get('/fetchordersbyorderidtocompleteorder/:id', async (req, res) => {
-    console.log(req.params.id)
-    await orders.findById(req.params.id)
-        .then(data => {
-            res.send(data)
-        })
-        .catch(err => {
-            res.send(err)
-        })
-}),
+
+    //for fetching orders by orderid to complete orders
+    router.get('/fetchordersbyorderidtocompleteorder/:id', async (req, res) => {
+        console.log(req.params.id)
+        await orders.findById(req.params.id)
+            .then(data => {
+                res.send(data)
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }),
 
 
 
@@ -342,16 +384,16 @@ router.get('/fetchuser/:id', async (req, res) => {
 
 
 
-//call a product with product ID
-router.get('/fetchtproduct/:id', async (req, res) => {
-    try {
-        const product = await products.findById(mongoose.Types.ObjectId(req.params.id)) //find(); 
-        res.send(product)
-    } catch (error) {
-        return res.status(442).send(error);
-        console.log("Could not get product");
-    }
-})
+    //call a product with product ID
+    router.get('/fetchtproduct/:id', async (req, res) => {
+        try {
+            const product = await products.findById(mongoose.Types.ObjectId(req.params.id)) //find(); 
+            res.send(product)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not get product");
+        }
+    })
 
 
 

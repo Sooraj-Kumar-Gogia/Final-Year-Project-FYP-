@@ -42,9 +42,9 @@ const OrdersApproval = ({ route }) => {
       <ScrollView>
         {data.map((item, ndx) => (
           <View key={ndx}>
-            <Card style={styles.orderlist} onPress={()=> navigation.navigate("OrderDetailsConfirmation", { item_id: item._id }) }>
+            <Card style={styles.orderlist} onPress={()=> navigation.navigate("OrderDetailsConfirmation", { item_id: item._id, userId: sellerid }) }>
               <Card.Content style={{ flex: 1, flexDirection: 'row', }}>
-                <View style={{ width: 100, height: 150, flex: 2, }} onPress={navigation.navigate('OrderDetailsConfirmation', { item_id: data._id })}>
+                <View style={{ width: 100, height: 150, flex: 2, }} onPress={()=>navigation.navigate('OrderDetailsConfirmation', { item_id: data._id })}>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#000000', }}>{item.name}</Text>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 12, color: '#000000', }}>{item.price}</Text>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 10, color: '#000000', }}>x {item.quantity}</Text>
