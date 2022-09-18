@@ -7,6 +7,7 @@ require('./Auth-Server/models/Products')
 require('./Auth-Server/models/Orders')
 require('./Auth-Server/models/Complains')
 require('./Auth-Server/models/UncomfirmedOrders')
+require('./Auth-Server/models/Rating')
 const authoRoutes = require('./routes/authRoutes')
 const requireToken = require("./middleware/requireToken")
 

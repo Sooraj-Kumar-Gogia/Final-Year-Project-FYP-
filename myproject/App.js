@@ -26,6 +26,7 @@ import FillOrderForm from './Screens/User Screens/FillOrderForm';
 import SubmitComplain from './Screens/User Screens/SubmitComplain';
 import Carousel from 'react-native-snap-carousel';
 import ContactSupport from './Screens/User Screens/ContactSupport';
+import Rate from './Screens/User Screens/Rating';
 
 
 const Stack = createStackNavigator();
@@ -53,6 +54,7 @@ function UserStack() {
       <Stack.Screen name="DeleteUserAdmin" component={DeleteUserAdmin} />
       <Stack.Screen name="SubmitComplain" component={SubmitComplain} />
       <Stack.Screen name="ContactSupport" component={ContactSupport} />
+      <Stack.Screen name="Rating" component={Rate} />
 
     </Stack.Navigator>
 
@@ -85,6 +87,7 @@ const App = () => {
       <UserStack />
        {/* <ContactSupport/> */}
       {/* <Carousel/> */}
+      {/* <Rate/> */}
       {/* <OrdersApproval/> */}
       {/* <ProductDisplay/> */}
       {/* <OrderDetailsConfirmation/> */}

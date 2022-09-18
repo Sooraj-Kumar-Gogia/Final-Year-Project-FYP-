@@ -58,7 +58,7 @@ const HomeUser = ({route}) => {
                 <Image source={{ uri: item.image }} style={styles.ProductImage} />
                 <Card.Title title={item.name} subtitle={item._id} />
                 <Card.Content>
-                  <Text>{item.price}</Text>
+                  <Text style={{fontSize: 18, color: 'black', fontFamily: 'Poppins', fontWeight: 'bold', marginLeft:8, }}>Rs. {item.price}/-</Text>
                 </Card.Content>
               </View>
             </Card>

@@ -9,6 +9,7 @@ const products = mongoose.model('Products')
 const orders = mongoose.model('Orders')
 const uncomfirmedorders = mongoose.model('UncomfirmedOrders')
 const complains = mongoose.model('Complains')
+const rating = mongoose.model('Rating')
 
 // Signup for New User
 router.post('/signup', async (req, res) => {
@@ -97,6 +98,8 @@ router.post('/signin', async (req, res) => {
 
 
 //Adding Products to the Database
+
+//Add Products to the Database
 router.post('/addproducts', async (req, res) => {
     const { sellerid, name, price, description, image } = req.body;
     try {
@@ -202,6 +205,18 @@ router.post('/uncomfirmedorders', async (req, res) => {
     router.delete('/deleteuncomfirmedorder/:id', async (req, res) => {
         console.log("reject with order id ", req.params.id)
         await uncomfirmedorders.findByIdAndDelete(mongoose.Types.ObjectId(req.params.id))
+            .then(data => {
+                res.send(data)
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }),
+ 
+
+    router.delete('/completeorder/:id', async (req, res) => {
+        console.log("complete with order id ", req.params.id)
+        await orders.findByIdAndDelete(mongoose.Types.ObjectId(req.params.id))
             .then(data => {
                 res.send(data)
             })
@@ -393,7 +408,22 @@ router.get('/fetchuser/:id', async (req, res) => {
             return res.status(442).send(error);
             console.log("Could not get product");
         }
-    })
+    }),
+
+
+//for submiting the rating
+router.post('/submitrating', async (req, res) => {
+    const { sellerid, userid, productid, rated, comment } = req.body;
+    try {
+        const rate = new rating({ sellerid, userid, productid, rated, comment })
+        await rate.save();
+        res.send(rate)
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not rate product");
+    }
+})
+
 
 
 

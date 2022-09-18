@@ -112,7 +112,7 @@ const OrderDetailsConfirmation = ({ route }) => {
                 .then(data => {
                     console.log(typeof (data))
                     console.log(data);
-                    alert("Order Rejected")
+                    alert("Done")
                     navigation.navigate('OrderApproval', { userId: sellerid })
                 })
         }
@@ -124,9 +124,9 @@ const OrderDetailsConfirmation = ({ route }) => {
     }
 
 
-
     return (
         <View style={{ margin: 20, }}>
+            <Text style={styles.NameHeading}>Pending Orders</Text>
             <ScrollView>
                 <View><Text></Text></View>
                 <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/addProduct.png')} style={styles.ProductImageOrderPage} />

@@ -44,9 +44,9 @@ const OrdersUser = ({ route }) => {
 
         {data.map((item, ndx) => (
           <View key={ndx}>
-            <Card style={styles.orderlist} onPress={()=>navigation.navigate('CompleteOrder',{orderid: item._id})}>
+            <Card style={styles.orderlist} onPress={()=>navigation.navigate('CompleteOrder',{orderid: item._id, userId: userId})}>
               <Card.Content style={{ flex: 1, flexDirection: 'row', }}>
-                <View style={{ width: 100, height: 150, flex: 2, }} onPress={()=>navigation.navigate('CompleteOrder', {orderid: item._id})}>
+                <View style={{ width: 100, height: 150, flex: 2, }} onPress={()=>navigation.navigate('CompleteOrder', {orderid: item._id, userId: userId})}>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 20, color: '#000000' }}>{item.name}</Text>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#000000' }}>{item.price}</Text>
                   <Text style={{ fontFamily: 'Poppins', fontSize: 14, color: '#dedede' }}>x{item.quantity}</Text>
