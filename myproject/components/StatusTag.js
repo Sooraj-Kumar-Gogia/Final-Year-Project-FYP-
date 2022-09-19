@@ -11,7 +11,7 @@ const ApprovalTag  = () => {
 
 const NotApprovedTag = () => {
   return (
-    <View style={{backgroundColor: 'red', height: 20, width: 120, alignContent: 'center', borderRadius: 10,}}><Text style={{color: 'black', alignSelf: 'center'}}>NOT APPROVED</Text></View>
+    <View style={{backgroundColor: 'red', height: 20, width: 120, alignContent: 'center', borderRadius: 10,}}><Text style={{color: 'black', alignSelf: 'center'}}>PENDING</Text></View>
   )
 
 }

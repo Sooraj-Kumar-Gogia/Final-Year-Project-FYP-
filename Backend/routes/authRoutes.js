@@ -422,6 +422,20 @@ router.post('/submitrating', async (req, res) => {
         return res.status(442).send(error);
         console.log("Could not rate product");
     }
+}), 
+
+
+router.get('/fetchunconfirmedorderslistforuser/:id', async (req, res) => {
+    console.log(req.params.id)
+    await uncomfirmedorders.find({ userid: req.params.id })
+        .then(data => {
+            res.send(data)
+        })
+
+        .catch(err => {
+            res.send(err)
+        })
+
 })
 
 

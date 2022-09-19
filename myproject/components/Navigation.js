@@ -21,6 +21,7 @@ import AdminDashboard from '../Screens/Admin Screens/Admin_Dashboard';
 import ComplainsAdmin from '../Screens/Admin Screens/ComplainsAdmin';
 import DeleteUserAdmin from '../Screens/Admin Screens/DeleteUserAdmin';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import PendingOrdersUser from '../Screens/User Screens/PendingOrdersUser';
 
 
 const Tab = createBottomTabNavigator();
@@ -33,6 +34,7 @@ function UserTab({ route }) {
     <Tab.Navigator initialRouteName='Home' initialParams={{ userId: userId }}>
       <Tab.Screen name="Home" component={HomeUser} initialParams={{ userId: userId }}  />
       <Tab.Screen name="Orders" component={OrdersUser} initialParams={{ userId: userId }} />
+      <Tab.Screen name="PendingOrders" component={PendingOrdersUser} initialParams={{ userId: userId }} />
       {/* <Tab.Screen name='Notification' component={Notification} /> */}
       <Tab.Screen name='Profile' component={Profile} initialParams={{ userId: userId }} />
     </Tab.Navigator>
