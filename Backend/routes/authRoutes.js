@@ -373,17 +373,30 @@ router.get('/getproducts', async (req, res) => {
 
 })
 
-// //Deleting Products from the Database
-// router.delete('/deleteproducts/:id', async (req, res) => {
-//     try {
-//         const product = await products.findByIdAndDelete(req.params.id);
-//         res.send(product)
-//     } catch (error) {
-//         return res.status(442).send(error);
-//         console.log("Could not delete product");
-//     }
+//Getting Products from the Database w.r.t Seller ID
+router.get('/getproductsforstore/:id', async (req, res) => {
+    try {
+        const product = await products.find({ sellerid: req.params.id })
+        res.send(product)
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not get product");
+    }
 
-// })
+}),
+
+
+//Deleting Products from the Database
+router.delete('/deleteproduct/:id', async (req, res) => {
+    try {
+        await products.findByIdAndDelete(req.params.id)
+        res.send(productid)
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not delete product");
+    }
+}),
+
 
 //Fetch user by id
 router.get('/fetchuser/:id', async (req, res) => {
@@ -423,6 +436,31 @@ router.post('/submitrating', async (req, res) => {
         console.log("Could not rate product");
     }
 }), 
+
+
+
+//for fetching the rating
+router.get('/fetchrating/:id', async (req, res) => {
+    try {
+        const rate = await rating.find({ sellerid: req.params.id })
+        res.send(rate)
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not get rating");
+    }
+}),
+
+//for fetching the rating
+router.get('/fetchratingbyproductid/:id', async (req, res) => {
+    try {
+        const rate = await rating.find({ productid: req.params.id })
+        res.send(rate)
+    } catch (error) {
+        return res.status(442).send(error);
+        console.log("Could not get rating");
+    }
+}),
+
 
 
 router.get('/fetchunconfirmedorderslistforuser/:id', async (req, res) => {

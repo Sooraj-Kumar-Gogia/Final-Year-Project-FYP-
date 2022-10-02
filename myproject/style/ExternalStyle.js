@@ -79,9 +79,31 @@ const styles = StyleSheet.create(
       overflow: 'hidden',
 
     },
+
+    storeproductcatalog: {
+      margin: 20,
+      flexDirection: 'row',
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: '#fff',
+      overflow: 'hidden',
+      height: 250,
+      width: 170,
+
+    },
     ProductImage: {
       width: 400,
       height: 250,
+      alignSelf: 'center',
+      paddingTop: 10,
+      alignContent: 'center',
+      margin: 20,
+      // borderColor: 'fefefe',
+      // borderRightWidth: 2,
+    },
+    storeProductImage: {
+      width: "100%",
+      height: 125,
       alignSelf: 'center',
       paddingTop: 10,
       alignContent: 'center',

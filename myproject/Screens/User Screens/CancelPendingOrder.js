@@ -69,7 +69,7 @@ export default CancelPendingOrder = ({ route }) => {
                 <Text style={{ fontSize: 18, color: 'black' }}>Address: {Data.address}</Text>
                 <Text style={{ fontSize: 18, color: 'black' }}>Phone Number: {Data.city}</Text>
                 <Text style={{ fontSize: 18, color: 'black' }}>City: {Data.city}</Text>
-                <Button style={styles.button} onPress={() => CallRejectOrder(Data.userid)}>Cancel Order</Button>
+                <Button style={styles.rejectbutton} onPress={() => CallRejectOrder(Data.userid)}>Cancel Order</Button>
             </ScrollView>
 
         </View>

@@ -22,6 +22,7 @@ import ComplainsAdmin from '../Screens/Admin Screens/ComplainsAdmin';
 import DeleteUserAdmin from '../Screens/Admin Screens/DeleteUserAdmin';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import PendingOrdersUser from '../Screens/User Screens/PendingOrdersUser';
+import MyStore from '../Screens/Seller Screens/MyStore';
 
 
 const Tab = createBottomTabNavigator();
@@ -50,6 +51,7 @@ function SellerTab({ route }) {
     <Tab.Navigator initialRouteName='Dashboard' initialParams={{ userId: userId }}>
       <Tab.Screen name="Dashboard" component={SellerDashboard} initialParams={{ userId: userId }} />
       <Tab.Screen name="OrdersApproval" component={OrdersApproval} initialParams={{ userId: userId }} />
+      <Tab.Screen name="MyStore" component={MyStore} initialParams={{ userId: userId }} />
       <Tab.Screen name="AddProduct" component={AddProduct} initialParams={{ userId: userId }} />
       <Tab.Screen name="Orders" component={Orders} initialParams={{ userId: userId }} />
       <Tab.Screen name='Profile' component={SellerProfile} initialParams={{ userId: userId }} />
