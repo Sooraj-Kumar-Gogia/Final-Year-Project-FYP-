@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Signup from '../Screens/User Screens/Signup';
@@ -23,8 +23,10 @@ import DeleteUserAdmin from '../Screens/Admin Screens/DeleteUserAdmin';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import PendingOrdersUser from '../Screens/User Screens/PendingOrdersUser';
 import MyStore from '../Screens/Seller Screens/MyStore';
+
 // import Icon from 'react-native-vector-icons/FontAwesome';
 // import Icon from 'react-native-vector-icons/'
+
 
 
 const Tab = createBottomTabNavigator();
@@ -34,12 +36,83 @@ function UserTab({ route }) {
   console.log("I am at Navigation Screen ", userId);
   return (
     // <NavigationContainer>
-    <Tab.Navigator initialRouteName='Home' initialParams={{ userId: userId }}>
-      <Tab.Screen name="Home" component={HomeUser} initialParams={{ userId: userId }} />
-      <Tab.Screen name="Orders" component={OrdersUser} initialParams={{ userId: userId }} />
-      <Tab.Screen name="PendingOrders" component={PendingOrdersUser} initialParams={{ userId: userId }} />
+    <Tab.Navigator initialRouteName='Home' initialParams={{ userId: userId }}
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          // position: 'absolute',
+          // bottom: 5,
+          // left: 20,
+          // right: 20,
+          elevation: 0,
+          backgroundColor: '#ffffff',
+          borderRadius: 15,
+          height: 80,
+        }
+      }}
+    >
+      <Tab.Screen name="Home" component={HomeUser} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//home.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Dashboard</Text> */}
+            </View>
+          )
+        }}
+      />
+      <Tab.Screen name="Orders" component={OrdersUser} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//orders.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Dashboard</Text> */}
+            </View>
+          )
+        }}
+
+      />
+      <Tab.Screen name="PendingOrders" component={PendingOrdersUser} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//pendingorders.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Dashboard</Text> */}
+            </View>
+          )
+        }}
+      />
       {/* <Tab.Screen name='Notification' component={Notification} /> */}
-      <Tab.Screen name='Profile' component={Profile} initialParams={{ userId: userId }} />
+      <Tab.Screen name='Profile' component={Profile} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//profile.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Dashboard</Text> */}
+            </View>
+          )
+        }}
+      />
     </Tab.Navigator>
     // </NavigationContainer>
   )
@@ -51,41 +124,110 @@ function SellerTab({ route }) {
   return (
     // <NavigationContainer>
     <Tab.Navigator initialRouteName='Dashboard' initialParams={{ userId: userId }}
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-          if (route.name === 'Dashboard') {
-            // iconName = focused ? 'home' : 'home';
-            iconName = 'home';
-            size = focused ? 25 : 20;
-          } else if (route.name === 'Orders') {
-            // iconName = focused ? 'shopping-cart' : 'shopping-cart';
-            iconName = 'shopping-cart'
-          } else if (route.name === 'AddProduct') {
-            // iconName = focused ? 'plus' : 'plus';
-            iconName = 'plus'
-          } else if (route.name === 'MyStore') {
-            iconName = focused ? 'store' : 'store';
-          } else if (route.name === 'Profile') {
-            iconName = focused ? 'user' : 'user';
-          }
-          return <Icon name={iconName} size={size} color={color} />;
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          // position: 'absolute',
+          // bottom: 5,
+          // left: 20,
+          // right: 20,
+          elevation: 0,
+          backgroundColor: '#ffffff',
+          borderRadius: 15,
+          height: 90,
         }
-      })}
-      tabBarOptions={{
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray',
-        showLabel: false,
-        showIcon: true,
-        labelstyle: {fontSize: 12},
       }}
     >
-      <Tab.Screen name="Dashboard" component={SellerDashboard} initialParams={{ userId: userId }} />
-      <Tab.Screen name="OrdersApproval" component={OrdersApproval} initialParams={{ userId: userId }} />
-      <Tab.Screen name="MyStore" component={MyStore} initialParams={{ userId: userId }} />
-      <Tab.Screen name="AddProduct" component={AddProduct} initialParams={{ userId: userId }} />
-      <Tab.Screen name="Orders" component={Orders} initialParams={{ userId: userId }} />
-      <Tab.Screen name='Profile' component={SellerProfile} initialParams={{ userId: userId }} />
+      <Tab.Screen name="Dashboard" component={SellerDashboard} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//home.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Dashboard</Text> */}
+            </View>
+          )
+        }}
+      />
+      <Tab.Screen name="OrdersApproval" component={OrdersApproval} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//pendingorders.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Order Approval</Text> */}
+            </View>
+          )
+        }}
+      />
+      <Tab.Screen name="MyStore" component={MyStore} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//store.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>My Store</Text> */}
+            </View>
+          )
+        }}
+      />
+      <Tab.Screen name="AddProduct" component={AddProduct} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//add.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Add Product</Text> */}
+            </View>
+          )
+        }}
+      />
+      <Tab.Screen name="Orders" component={Orders} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//orders.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Orders</Text> */}
+            </View>
+          )
+        }}
+      />
+      <Tab.Screen name='Profile' component={SellerProfile} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//profile.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Profile</Text> */}
+            </View>
+          )
+        }}
+      />
     </Tab.Navigator>
     //  </NavigationContainer>
   )
@@ -97,10 +239,69 @@ function AdminTab({ route }) {
   console.log(userId);
   return (
     // <NavigationContainer>
-    <Tab.Navigator initialRouteName='AdminDashboard' initialParams={{ userId: userId }}>
-      <Tab.Screen name="AdminDashboard" component={AdminDashboard} initialParams={{ userId: userId }} />
-      <Tab.Screen name="DeleteUserAdmin" component={DeleteUserAdmin} initialParams={{ userId: userId }} />
-      <Tab.Screen name="ComplainsAdmin" component={ComplainsAdmin} initialParams={{ userId: userId }} />
+    <Tab.Navigator initialRouteName='AdminDashboard' initialParams={{ userId: userId }}
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          // position: 'absolute',
+          // bottom: 5,
+          // left: 20,
+          // right: 20,
+          elevation: 0,
+          backgroundColor: '#ffffff',
+          borderRadius: 15,
+          height: 80,
+        }
+
+      }}
+    >
+      <Tab.Screen name="AdminDashboard" component={AdminDashboard} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//home.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Dashboard</Text>
+            </View>
+          )
+        }}
+      />
+      <Tab.Screen name="DeleteUserAdmin" component={DeleteUserAdmin} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//profile.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Delete User</Text> */}
+            </View>
+          )
+        }}
+
+      />
+      <Tab.Screen name="ComplainsAdmin" component={ComplainsAdmin} initialParams={{ userId: userId }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+              {/* <Icon name="home" size={25} color={focused ? '#e32f45' : '#748c94'} /> */}
+              <Image source={require('../src/assets//complain.png')} resizeMode="contain" style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#e32f45' : 'grey'
+              }} />
+              {/* <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Complains</Text> */}
+            </View>
+          )
+        }}
+
+      />
     </Tab.Navigator>
     //  </NavigationContainer>
   )

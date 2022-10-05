@@ -405,7 +405,7 @@ router.get('/getproductsforstore/:id', async (req, res) => {
             res.send(userid)
         } catch (error) {
             return res.status(442).send(error);
-            console.log("Could not delete user");
+            console.log("Could not delete user"); 
         }
     }),
 

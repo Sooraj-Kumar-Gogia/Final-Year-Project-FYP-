@@ -104,7 +104,7 @@ const Login = () => {
     <View>
       <ScrollView>
         <Image source={require('C:/Users/Sooraj Gogia/OneDrive/Desktop/React/myproject/Final-Year-Project-FYP-/myproject/src/illustrations/HI.png')} style={{ width: 150, height: 200, alignSelf: 'center', paddingTop: 70 }} />
-        <Text style={styles.Heading}>Welcome Back</Text>
+        <Text style={styles.Heading}>Hi, Welcome</Text>
 
         <TextInput placeholder='Enter your Email' value={email} onChangeText={(text) => setEmail(text)} style={styles.TextBox}></TextInput>
 
