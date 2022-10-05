@@ -212,7 +212,7 @@ router.post('/uncomfirmedorders', async (req, res) => {
                 res.send(err)
             })
     }),
- 
+
 
     router.delete('/completeorder/:id', async (req, res) => {
         console.log("complete with order id ", req.params.id)
@@ -386,28 +386,51 @@ router.get('/getproductsforstore/:id', async (req, res) => {
 }),
 
 
-//Deleting Products from the Database
-router.delete('/deleteproduct/:id', async (req, res) => {
-    try {
-        await products.findByIdAndDelete(req.params.id)
-        res.send(productid)
-    } catch (error) {
-        return res.status(442).send(error);
-        console.log("Could not delete product");
-    }
-}),
+    //Deleting Products from the Database
+    router.delete('/deleteproduct/:id', async (req, res) => {
+        try {
+            await products.findByIdAndDelete(req.params.id)
+            res.send(productid)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not delete product");
+        }
+    }),
 
 
-//Fetch user by id
-router.get('/fetchuser/:id', async (req, res) => {
-    try {
-        const user = await users.findById(mongoose.Types.ObjectId(req.params.id)) //find();
-        res.send(user)
-    } catch (error) {
-        return res.status(442).send(error);
-        console.log("Could not get product");
-    }
-}),
+    //Deleting user with Email ID 
+    router.delete('/deleteuser/:id', async (req, res) => {
+        try {
+            await users.findOneAndDelete({ email: req.params.id })
+            res.send(userid)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not delete user");
+        }
+    }),
+
+    //fetching complains 
+    router.get('/fetchcomplains', async (req, res) => {
+        try {
+            const complain = await complains.find()
+            res.send(complain)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not get complains");
+        }
+    }),
+
+
+    //Fetch user by id
+    router.get('/fetchuser/:id', async (req, res) => {
+        try {
+            const user = await users.findById(mongoose.Types.ObjectId(req.params.id)) //find();
+            res.send(user)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not get product");
+        }
+    }),
 
 
 
@@ -424,57 +447,57 @@ router.get('/fetchuser/:id', async (req, res) => {
     }),
 
 
-//for submiting the rating
-router.post('/submitrating', async (req, res) => {
-    const { sellerid, userid, productid, rated, comment } = req.body;
-    try {
-        const rate = new rating({ sellerid, userid, productid, rated, comment })
-        await rate.save();
-        res.send(rate)
-    } catch (error) {
-        return res.status(442).send(error);
-        console.log("Could not rate product");
-    }
-}), 
+    //for submiting the rating
+    router.post('/submitrating', async (req, res) => {
+        const { sellerid, userid, productid, rated, comment } = req.body;
+        try {
+            const rate = new rating({ sellerid, userid, productid, rated, comment })
+            await rate.save();
+            res.send(rate)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not rate product");
+        }
+    }),
 
 
 
-//for fetching the rating
-router.get('/fetchrating/:id', async (req, res) => {
-    try {
-        const rate = await rating.find({ sellerid: req.params.id })
-        res.send(rate)
-    } catch (error) {
-        return res.status(442).send(error);
-        console.log("Could not get rating");
-    }
-}),
+    //for fetching the rating
+    router.get('/fetchrating/:id', async (req, res) => {
+        try {
+            const rate = await rating.find({ sellerid: req.params.id })
+            res.send(rate)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not get rating");
+        }
+    }),
 
-//for fetching the rating
-router.get('/fetchratingbyproductid/:id', async (req, res) => {
-    try {
-        const rate = await rating.find({ productid: req.params.id })
-        res.send(rate)
-    } catch (error) {
-        return res.status(442).send(error);
-        console.log("Could not get rating");
-    }
-}),
+    //for fetching the rating
+    router.get('/fetchratingbyproductid/:id', async (req, res) => {
+        try {
+            const rate = await rating.find({ productid: req.params.id })
+            res.send(rate)
+        } catch (error) {
+            return res.status(442).send(error);
+            console.log("Could not get rating");
+        }
+    }),
 
 
 
-router.get('/fetchunconfirmedorderslistforuser/:id', async (req, res) => {
-    console.log(req.params.id)
-    await uncomfirmedorders.find({ userid: req.params.id })
-        .then(data => {
-            res.send(data)
-        })
+    router.get('/fetchunconfirmedorderslistforuser/:id', async (req, res) => {
+        console.log(req.params.id)
+        await uncomfirmedorders.find({ userid: req.params.id })
+            .then(data => {
+                res.send(data)
+            })
 
-        .catch(err => {
-            res.send(err)
-        })
+            .catch(err => {
+                res.send(err)
+            })
 
-})
+    })
 
 
 

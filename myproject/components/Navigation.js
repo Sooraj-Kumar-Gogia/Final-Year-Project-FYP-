@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Signup from '../Screens/User Screens/Signup';
 import HomeUser from '../Screens/User Screens/HomeUser';
 import OrdersUser from '../Screens/User Screens/OrdersUser';
@@ -20,9 +20,11 @@ import ProductDisplay from '../Screens/User Screens/ProductDisplay';
 import AdminDashboard from '../Screens/Admin Screens/Admin_Dashboard';
 import ComplainsAdmin from '../Screens/Admin Screens/ComplainsAdmin';
 import DeleteUserAdmin from '../Screens/Admin Screens/DeleteUserAdmin';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import PendingOrdersUser from '../Screens/User Screens/PendingOrdersUser';
 import MyStore from '../Screens/Seller Screens/MyStore';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+// import Icon from 'react-native-vector-icons/'
 
 
 const Tab = createBottomTabNavigator();
@@ -33,7 +35,7 @@ function UserTab({ route }) {
   return (
     // <NavigationContainer>
     <Tab.Navigator initialRouteName='Home' initialParams={{ userId: userId }}>
-      <Tab.Screen name="Home" component={HomeUser} initialParams={{ userId: userId }}  />
+      <Tab.Screen name="Home" component={HomeUser} initialParams={{ userId: userId }} />
       <Tab.Screen name="Orders" component={OrdersUser} initialParams={{ userId: userId }} />
       <Tab.Screen name="PendingOrders" component={PendingOrdersUser} initialParams={{ userId: userId }} />
       {/* <Tab.Screen name='Notification' component={Notification} /> */}
@@ -48,7 +50,36 @@ function SellerTab({ route }) {
   console.log(userId);
   return (
     // <NavigationContainer>
-    <Tab.Navigator initialRouteName='Dashboard' initialParams={{ userId: userId }}>
+    <Tab.Navigator initialRouteName='Dashboard' initialParams={{ userId: userId }}
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          if (route.name === 'Dashboard') {
+            // iconName = focused ? 'home' : 'home';
+            iconName = 'home';
+            size = focused ? 25 : 20;
+          } else if (route.name === 'Orders') {
+            // iconName = focused ? 'shopping-cart' : 'shopping-cart';
+            iconName = 'shopping-cart'
+          } else if (route.name === 'AddProduct') {
+            // iconName = focused ? 'plus' : 'plus';
+            iconName = 'plus'
+          } else if (route.name === 'MyStore') {
+            iconName = focused ? 'store' : 'store';
+          } else if (route.name === 'Profile') {
+            iconName = focused ? 'user' : 'user';
+          }
+          return <Icon name={iconName} size={size} color={color} />;
+        }
+      })}
+      tabBarOptions={{
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
+        showLabel: false,
+        showIcon: true,
+        labelstyle: {fontSize: 12},
+      }}
+    >
       <Tab.Screen name="Dashboard" component={SellerDashboard} initialParams={{ userId: userId }} />
       <Tab.Screen name="OrdersApproval" component={OrdersApproval} initialParams={{ userId: userId }} />
       <Tab.Screen name="MyStore" component={MyStore} initialParams={{ userId: userId }} />

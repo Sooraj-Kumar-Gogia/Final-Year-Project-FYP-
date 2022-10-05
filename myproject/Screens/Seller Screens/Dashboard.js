@@ -15,6 +15,32 @@ const SellerDashboard = ({ route }) => {
     console.log("I am at Seller Dasbboard", sellerid)
     console.log(sellerid);
 
+    const [unconfirmedorders, setunconfirmedorders] = React.useState([]);
+    const [confirmedorders, setconfirmedorders] = React.useState([]);
+
+
+    React.useEffect(() => {
+        fetch(`http://10.0.2.2:3000/fetchunconfirmedorderslist/${sellerid}`)
+          .then((res) => res.json())
+          .then(data => {
+            console.log(data);
+            setunconfirmedorders(data);
+          })
+    
+      }, [])
+
+      
+      React.useEffect(() => {
+        fetch(`http://10.0.2.2:3000/fetchorders/${sellerid}`)
+          .then((res) => res.json())
+          .then(data => {
+            setconfirmedorders(data);
+          })
+    
+      }, [])
+
+      
+
     return (
         // <View></View>
         <View style={{ paddingTop: 20, flex: 2,  }}>
@@ -39,14 +65,14 @@ const SellerDashboard = ({ route }) => {
                     <Card style={styles.SellerDashboardCards} onPress={() => CallOrderApproval(sellerid)}>
                         <Card.Content>
                             <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 18, alignSelf: 'center', fontWeight: 'bold', }}>UNCOMFIRMED ORDERS</Text>
-                            <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 40, fontWeight: 'bold', }}>{'\n'}2</Text>
+                            <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 40, fontWeight: 'bold', }}>{'\n'}{unconfirmedorders.length}</Text>
                         </Card.Content>
                     </Card>
 
                     <Card style={styles.SellerDashboardCards2} onPress={() => CallOrdersScreen(sellerid)}>
                         <Card.Content>
                             <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 18, fontWeight: 'bold', }}>ACTIVE ORDERS</Text>
-                            <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 40, fontWeight: 'bold', }}>{'\n'}2</Text>
+                            <Text style={{ color: 'white', fontFamily: 'Poppins', fontSize: 40, fontWeight: 'bold', }}>{'\n'}{confirmedorders.length}</Text>
                         </Card.Content>
                     </Card>
                 </View>
