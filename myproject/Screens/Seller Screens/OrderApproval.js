@@ -10,6 +10,7 @@ import SellerDashboard from './Dashboard';
 import { UserTab } from '../../components/Navigation';
 import { SellerTab } from '../../components/Navigation';
 import Navigation from '../../components/Navigation';
+import { useIsFocused } from '@react-navigation/native';
 
 
 
@@ -17,6 +18,7 @@ import Navigation from '../../components/Navigation';
 const OrdersApproval = ({ route }) => {
   // Stack = createStackNavigator();
   navigation = useNavigation();
+  const isFocused = useIsFocused();
   sellerid = route.params.userId;
   console.log("At Order Approval, seller: ", sellerid);
   const [data, setData] = useState([]);
@@ -31,7 +33,7 @@ const OrdersApproval = ({ route }) => {
       })
 
 
-  }, [])
+  }, [isFocused])
   console.log(data);
 
   // const CallOrderDetailsConfirmationScreen = () => {navigation.navigate('OrderDetailsConfirmation', {item_id: data._id});}

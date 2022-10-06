@@ -20,8 +20,8 @@ export default Signup1 = ({ route }) => {
 
     const SubmitForm = () => {
         console.log(name, email, role, password)
-        if (!email.trim()) { alert("Plaese Enter an Email") }
-        if (!password.trim()) { alert("Please Enter a Password") }
+        if (!email.match('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+[.]{1}[a-zA-Z]{2,}$')) { alert("Plaese Enter an Email") }
+        if (!password.trim().length < 6) { alert("Please enter a password more than 6 characters") }
         if (password != repass) { alert("Passwords do not match") }
 
         else { 

@@ -14,16 +14,16 @@ import Navigation from '../../components/Navigation';
 import SellerSignup from '../Seller Screens/Signup_Seller';
 
 const CallHomeScreen = (userId) => {
-  console.log("I am CallHomeScreen",userId);
+  console.log("I am CallHomeScreen", userId);
   navigation.navigate('Home', { userId: userId })
 }
 const CallSellerDashboard = (userId) => {
-  console.log("I am CallSellerScreen",userId);
+  console.log("I am CallSellerScreen", userId);
   navigation.navigate('Dashboard', { userId: userId })
 }
 
 const CallAdminDashboard = (userId) => {
-  console.log("I am CallAdminDashboard at Login",userId);
+  console.log("I am CallAdminDashboard at Login", userId);
   navigation.navigate('AdminDashboard', { userId: userId })
 }
 
@@ -38,43 +38,58 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [data, setData] = useState([]);
+  // const [error,setError] = useState('');
+
   let role;
   let userId;
 
   const sendCrd = () => {
-    fetch("http://10.0.2.2:3000/signin", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
 
-      body: JSON.stringify({
-        "email": email,
-        "password": password
-      })
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        role = data.role;
-        userId = data._id;
-        // console.log(role, userId)
-        if (role.toLowerCase() === "user") {
-          CallHomeScreen(userId)
-        }
-        else if (role.toLowerCase() === "seller") {
-          CallSellerDashboard(userId)
-        }
-        else if (role.toLowerCase() === "admin") {
-          CallAdminDashboard(userId)
-        }
-        else {
-          console.log("Invalid credentials")
-          alert("Invalid Credentials")
-        }
-        setData(data)
+    if (email.trim().length == 0 || password.trim().length == 0) {
+      alert("Please fill all the fields");
+    }
+    else if (password.trim().length < 5) {
+      alert("Password must be of greater than 6 characters")
+    }
+    else if (!email.match('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+[.]{1}[a-zA-Z]{2,}$')) {
+      alert("Please enter a valid email")
+    }
 
+    else{
+      fetch("http://10.0.2.2:3000/signin", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          "email": email,
+          "password": password
+        })
       })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          role = data.role;
+          userId = data._id;
+          // console.log(role, userId)
+          if (role.toLowerCase() === "user") {
+            CallHomeScreen(userId)
+          }
+          else if (role.toLowerCase() === "seller") {
+            CallSellerDashboard(userId)
+          }
+          else if (role.toLowerCase() === "admin") {
+            CallAdminDashboard(userId)
+          }
+          else {
+            console.log("Invalid credentials")
+            alert("Invalid Credentials")
+          }
+          setData(data)
+
+        })
+      }
 
     // try {
     //   // console.log(data.userid)

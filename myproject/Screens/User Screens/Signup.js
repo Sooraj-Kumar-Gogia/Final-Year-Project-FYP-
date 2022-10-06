@@ -19,8 +19,8 @@ export default Signup = () => {
 
     const CallSignup1Screen = () => {
 
-        if (!name.trim()) { Alert.alert("Plaese Enter an Email") }
-        if (!phone.trim()) { Alert.alert("Please Enter a Password") }
+        if (!name.trim()) { Alert.alert("Plaese Enter name") }
+        if (!phone.match('^[0-9]{11}$') && phone>0) { Alert.alert("Please Enter a valid phone") }
         else {
             navigation.navigate('Signup1', { Role: role, Name: name, Phone: phone }); console.log(name, phone, role)
         }

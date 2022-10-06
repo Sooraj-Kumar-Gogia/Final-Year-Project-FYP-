@@ -6,10 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 import { Rating } from 'react-native-ratings';
 import styles from '../../style/ExternalStyle';
 import ProductDisplaySeller from './ProductDisplaySeller';
+import { useIsFocused } from '@react-navigation/native';
 
 export default MyStore = ({ route }) => {
 
     navigation = useNavigation()
+    const isFocused = useIsFocused();
     const [data, setData] = useState([]);
     const [reviews, setreviews] = useState([]);
     // const userId = "63187878d73eff844b5de2c0"
@@ -22,7 +24,7 @@ export default MyStore = ({ route }) => {
                 setData(data);
             })
 
-    }, [])
+    }, [isFocused])
 
     React.useEffect(() => {
         fetch(`http://10.0.2.2:3000/fetchrating/${userId}`)
@@ -32,7 +34,7 @@ export default MyStore = ({ route }) => {
 
             })
 
-    }, [])
+    }, [isFocused])
 
 
     return (
