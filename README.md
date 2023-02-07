@@ -1,4 +1,4 @@
-# 🎯 YHEW Food Business App 
+# 📝 YHEW Food Business App 
 👉 The YHEW Food Business app is a cross-platform app developed to buy and sell homemade food. It is a multi-vendor app that allows sellers, buyers, and an admin to interact and do business. It is specifically designed to facilitate the sale of homemade food. For sellers, the app makes it easy to list their food, and manage orders. Buyers can easily find the food they are looking for, purchase it, and have it delivered to them. The app also has an admin role that has the admin rights to manage users and view complaints. This app is the solution for anyone looking to buy or sell homemade food.
 
 The objective of this project is to provide an opportunity for sellers, especially females to earn through the food they usually cook. And it is also beneficial for bachelors to eat healthier home-made food. It can benefit the overall youth. People who regularly eat home-cooked meals tend to be happier and healthier, consume less sugar and processed foods, and have higher energy levels and better mental health. This application will empower millions of housewives to sell their food and earn their livelihoods on their own. This will cover only homemade food, no restaurants or junk food which is fulfilling the core purpose of this mobile application. People love to cook, but often don't have the time or skills to prepare meals. This platform connects hungry people with chefs who want to make and sell their own dishes
@@ -22,7 +22,7 @@ The objective of this project is to provide an opportunity for sellers, especial
 2. View Complaints
 
 
-## Technologies used
+## 🎯 Technologies used
 I used the MERN Stack for App Development
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="react_native_icon" style="width:50px; height:40px"/> <img src="https://icon-library.com/images/node-js-icon/node-js-icon-8.jpg" alt="nodejs_icon" style="width:35px; height:35px"/> <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="expressjs_icon" style="width:100px; height:25px"/> <img src="https://cdn.iconscout.com/icon/free/png-256/mongodb-5-1175140.png" alt="mongodb_icon" style="width:70px; height:70px"/>
