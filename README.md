@@ -22,6 +22,13 @@ The objective of this project is to provide an opportunity for sellers, especial
 2. View Complaints
 
 
+## Technologies used
+![React Native Image](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png)
+![Nodejs Image](https://icon-library.com/images/node-js-icon/node-js-icon-8.jpg)
+![Expressjs Image](https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png)
+![MongoDB Image](https://cdn.iconscout.com/icon/free/png-256/mongodb-5-1175140.png)
+
+
 ## 🚀 Future Work (extension)
 Nowadays, no project can be or is unexpandable.. There is always room for improvement in every project even the top tech companies like Facebook and Google are expanding their products, adding functionalities, and features, and bettering their performance and design. This app could be expanded. There are modules that can take the app to next level. This app can have:
 
@@ -33,5 +40,5 @@ Nowadays, no project can be or is unexpandable.. There is always room for improv
 6. Dispute Management and orders logs
 7. Seller Level Systems
 
-## 📢 Announcement 
+## 📢 Announcement (Give Away)
 You are free to use this GitHub code and extend it for your personal projects. Let's make it better together 😃
