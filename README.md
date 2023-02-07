@@ -6,7 +6,6 @@
 
 
 ## ⭐ Features
-
 ### For Sellers:
 1. Publish Products
 2. Delete Products
@@ -14,33 +13,30 @@
 4. Manage Orders 
 5. File a complaint
 6. Contact Support screen
-
 ### Buyer (User)
 1. Order Food 
 2. Cancel orders (if still not accepted by Seller)
 3. File Complaint against sellers or orders
 4. Contact Support screen
-
 ### Admin 
 1. Delete User
 2. View Complaints
 
 
-
-
-
-
-
-## 📢 Future Work (extension)
+## 🚀 Future Work (extension)
 Nowadays, no project can be or is unexpandable.. There is always room for improvement in every project even the top tech companies like Facebook and Google are expanding their products, adding functionalities, and features, and bettering their performance and design. This app could be expanded. There are modules that can take the app to next level. This app can have:
 
-1. ● Automated AI-based delivery module
-2. ● Integrated Payment from Banks and E-wallets
-3. ● AI ChatBots
-4. ● In-App Messenger
-5. ● Team Management System
-6. ● Dispute Management and orders logs
-7. ● Seller Level Systems
+1. Automated AI-based delivery module
+2. Integrated Payment from Banks and E-wallets
+3. AI ChatBots
+4. In-App Messenger
+5. Team Management System
+6. Dispute Management and orders logs
+7. Seller Level Systems
+
+## 📢 Announcement 
+You are free to use this GitHub code and extend it for your personal projects and work on it to make better 😃
+
 
 
 
