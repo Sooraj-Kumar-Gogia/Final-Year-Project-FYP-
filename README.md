@@ -32,13 +32,13 @@ The objective of this project is to provide an opportunity for sellers, especial
 ## 🚀 Future Work (extension)
 Nowadays, no project can be or is unexpandable.. There is always room for improvement in every project even the top tech companies like Facebook and Google are expanding their products, adding functionalities, and features, and bettering their performance and design. This app could be expanded. There are modules that can take the app to next level. This app can have:
 
-1. Automated AI-based delivery module
-2. Integrated Payment from Banks and E-wallets
-3. AI ChatBots
-4. In-App Messenger
-5. Team Management System
-6. Dispute Management and orders logs
-7. Seller Level Systems
++ Automated AI-based delivery module
++ Integrated Payment from Banks and E-wallets
++ AI ChatBots
++ In-App Messenger
++ Team Management System
++ Dispute Management and orders logs
++ Seller Level Systems
 
 ## 📢 Announcement (Give Away)
 You are free to use this GitHub code and extend it for your personal projects. Let's make it better together 😃
