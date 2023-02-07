@@ -23,11 +23,10 @@ The objective of this project is to provide an opportunity for sellers, especial
 
 
 ## Technologies used
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="react_native_icon" style="width:200px; height:200px"/>
-![React Native Image](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png){:height="100px" width="100px"}.
-![Nodejs Image](https://icon-library.com/images/node-js-icon/node-js-icon-8.jpg){:height="100px" width="100px"}.
-![Expressjs Image](https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png){:height="100px" width="100px"}.
-![MongoDB Image](https://cdn.iconscout.com/icon/free/png-256/mongodb-5-1175140.png){:height="100px" width="100px"}.
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="react_native_icon" style="width:100px; height:150px"/>
+<img src="https://icon-library.com/images/node-js-icon/node-js-icon-8.jpg" alt="nodejs_icon" style="width:100px; height:150px"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="expressjs_icon" style="width:100px; height:150px"/>
+<img src="https://cdn.iconscout.com/icon/free/png-256/mongodb-5-1175140.png" alt="mongodb_icon" style="width:100px; height:150px"/>
 
 
 ## 🚀 Future Work (extension)
