@@ -28,6 +28,7 @@ I used the MERN Stack for App Development
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="react_native_icon" style="width:50px; height:40px"/> <img src="https://icon-library.com/images/node-js-icon/node-js-icon-8.jpg" alt="nodejs_icon" style="width:35px; height:35px"/> <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" alt="expressjs_icon" style="width:100px; height:25px"/> <img src="https://cdn.iconscout.com/icon/free/png-256/mongodb-5-1175140.png" alt="mongodb_icon" style="width:70px; height:70px"/>
 
 
+
 ## 🚀 Future Work (extension)
 Nowadays, no project can be or is unexpandable.. There is always room for improvement in every project even the top tech companies like Facebook and Google are expanding their products, adding functionalities, and features, and bettering their performance and design. This app could be expanded. There are modules that can take the app to next level. This app can have:
 
