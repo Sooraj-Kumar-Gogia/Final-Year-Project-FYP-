@@ -1,5 +1,5 @@
 # 📝 YHEW Food Business App 
-<img src="https://user-images.githubusercontent.com/81988522/223677135-a7c1a13b-7bda-4ae6-ac23-b63627b97d2c.png" alt="nodejs_icon" style="width:1000px; height:500px"/>
+<img src="https://user-images.githubusercontent.com/81988522/223677135-a7c1a13b-7bda-4ae6-ac23-b63627b97d2c.png" alt="project thumbnail" style="width:1000px; height:500px"/>
 
 
 
